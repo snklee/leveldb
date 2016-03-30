@@ -59,8 +59,8 @@ BENCHMARKS = \
 	doc/bench/db_bench_sqlite3 \
 	doc/bench/db_bench_tree_db
 
-CFLAGS += -I. -I./include $(PLATFORM_CCFLAGS) $(OPT)
-CXXFLAGS += -I. -I./include $(PLATFORM_CXXFLAGS) $(OPT)
+CFLAGS += -g -I. -I./include $(PLATFORM_CCFLAGS) $(OPT)
+CXXFLAGS += -g -I. -I./include $(PLATFORM_CXXFLAGS) $(OPT)
 
 LDFLAGS += $(PLATFORM_LDFLAGS)
 LIBS += $(PLATFORM_LIBS)
@@ -141,7 +141,7 @@ endif  # PLATFORM_SHARED_EXT
 all: $(SHARED_LIBS) $(SHARED_PROGRAMS) $(STATIC_OUTDIR)/libleveldb.a $(STATIC_OUTDIR)/libmemenv.a $(STATIC_PROGRAMS)
 
 check: $(STATIC_PROGRAMS)
-	for t in $(notdir $(TESTS)); do echo "***** Running $$t"; $(STATIC_OUTDIR)/$$t || exit 1; done
+	for t in $(notdir $(TESTS)); do echo "***** Running $$t"; valgrind $(STATIC_OUTDIR)/$$t || exit 1; done
 
 clean:
 	-rm -rf out-static out-shared out-ios-x86 out-ios-arm out-ios-universal

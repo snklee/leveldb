@@ -1,0 +1,2947 @@
+mkdir out-static/db
+mkdir out-static/port
+mkdir out-static/table
+mkdir out-static/util
+mkdir -p out-static/helpers/memenv
+mkdir out-shared/db
+mkdir out-shared/port
+mkdir out-shared/table
+mkdir out-shared/util
+mkdir -p out-shared/helpers/memenv
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/builder.cc -o out-static/db/builder.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/c.cc -o out-static/db/c.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/dbformat.cc -o out-static/db/dbformat.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/db_impl.cc -o out-static/db/db_impl.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/db_iter.cc -o out-static/db/db_iter.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/dumpfile.cc -o out-static/db/dumpfile.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/filename.cc -o out-static/db/filename.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/log_reader.cc -o out-static/db/log_reader.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/log_writer.cc -o out-static/db/log_writer.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/memtable.cc -o out-static/db/memtable.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/repair.cc -o out-static/db/repair.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/table_cache.cc -o out-static/db/table_cache.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/version_edit.cc -o out-static/db/version_edit.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/version_set.cc -o out-static/db/version_set.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/write_batch.cc -o out-static/db/write_batch.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/block_builder.cc -o out-static/table/block_builder.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/block.cc -o out-static/table/block.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/filter_block.cc -o out-static/table/filter_block.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/format.cc -o out-static/table/format.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/iterator.cc -o out-static/table/iterator.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/merger.cc -o out-static/table/merger.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/table_builder.cc -o out-static/table/table_builder.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/table.cc -o out-static/table/table.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c table/two_level_iterator.cc -o out-static/table/two_level_iterator.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/arena.cc -o out-static/util/arena.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/bloom.cc -o out-static/util/bloom.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/cache.cc -o out-static/util/cache.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/coding.cc -o out-static/util/coding.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/comparator.cc -o out-static/util/comparator.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/crc32c.cc -o out-static/util/crc32c.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/env.cc -o out-static/util/env.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/env_posix.cc -o out-static/util/env_posix.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/filter_policy.cc -o out-static/util/filter_policy.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/hash.cc -o out-static/util/hash.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/histogram.cc -o out-static/util/histogram.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/logging.cc -o out-static/util/logging.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/options.cc -o out-static/util/options.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/status.cc -o out-static/util/status.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c port/port_posix.cc -o out-static/port/port_posix.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/testharness.cc -o out-static/util/testharness.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c util/testutil.cc -o out-static/util/testutil.o
+clang -g -I. -I./include -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c db/c_test.c -o out-static/db/c_test.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c helpers/memenv/memenv_test.cc -o out-static/helpers/memenv/memenv_test.o
+clang++ -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG -c helpers/memenv/memenv.cc -o out-static/helpers/memenv/memenv.o
+rm -f out-static/libleveldb.a
+ar -rs out-static/libleveldb.a out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o
+ar: creating out-static/libleveldb.a
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/db_bench.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testutil.o -o out-static/db_bench -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/leveldbutil.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o -o out-static/leveldbutil -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/autocompact_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/autocompact_test -lsnappy
+clang++ -pthread out-static/db/c_test.o out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/c_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/corruption_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/corruption_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/db_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/db_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/dbformat_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/dbformat_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/fault_injection_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/fault_injection_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/filename_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/filename_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/log_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/log_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/recovery_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/recovery_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/skiplist_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/skiplist_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/version_edit_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/version_edit_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/version_set_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/version_set_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG db/write_batch_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/write_batch_test -lsnappy
+rm -f out-static/libmemenv.a
+ar -rs out-static/libmemenv.a out-static/helpers/memenv/memenv.o
+ar: creating out-static/libmemenv.a
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG issues/issue178_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/issue178_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG issues/issue200_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/issue200_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG table/filter_block_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/filter_block_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG table/table_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/table_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/arena_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/arena_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/bloom_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/bloom_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/cache_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/cache_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/coding_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/coding_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/crc32c_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/crc32c_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/env_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/env_test -lsnappy
+clang++ -pthread -g -I. -I./include -std=c++0x  -pthread -DOS_LINUX -DLEVELDB_PLATFORM_POSIX -DLEVELDB_ATOMIC_PRESENT -DSNAPPY -O2 -DNDEBUG util/hash_test.cc out-static/db/builder.o out-static/db/c.o out-static/db/dbformat.o out-static/db/db_impl.o out-static/db/db_iter.o out-static/db/dumpfile.o out-static/db/filename.o out-static/db/log_reader.o out-static/db/log_writer.o out-static/db/memtable.o out-static/db/repair.o out-static/db/table_cache.o out-static/db/version_edit.o out-static/db/version_set.o out-static/db/write_batch.o out-static/table/block_builder.o out-static/table/block.o out-static/table/filter_block.o out-static/table/format.o out-static/table/iterator.o out-static/table/merger.o out-static/table/table_builder.o out-static/table/table.o out-static/table/two_level_iterator.o out-static/util/arena.o out-static/util/bloom.o out-static/util/cache.o out-static/util/coding.o out-static/util/comparator.o out-static/util/crc32c.o out-static/util/env.o out-static/util/env_posix.o out-static/util/filter_policy.o out-static/util/hash.o out-static/util/histogram.o out-static/util/logging.o out-static/util/options.o out-static/util/status.o out-static/port/port_posix.o out-static/util/testharness.o out-static/util/testutil.o -o out-static/hash_test -lsnappy
+clang++ -pthread out-static/helpers/memenv/memenv_test.o out-static/libmemenv.a out-static/libleveldb.a out-static/util/testharness.o out-static/util/testutil.o -o out-static/memenv_test -lsnappy
+for t in autocompact_test c_test corruption_test db_test dbformat_test fault_injection_test filename_test log_test recovery_test skiplist_test version_edit_test version_set_test write_batch_test memenv_test issue178_test issue200_test filter_block_test table_test arena_test bloom_test cache_test coding_test crc32c_test env_test hash_test; do echo "***** Running $t"; valgrind out-static/$t || exit 1; done
+***** Running autocompact_test
+==20309== Memcheck, a memory error detector
+==20309== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20309== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20309== Command: out-static/autocompact_test
+==20309== 
+==== Test AutoCompactTest.ReadAll
+iter   1 => 100.040 MB [other   0.000 MB]
+iter   2 => 100.040 MB [other   0.000 MB]
+iter   3 => 100.040 MB [other   0.000 MB]
+iter   4 => 100.040 MB [other   0.000 MB]
+iter   5 => 100.040 MB [other   0.000 MB]
+iter   6 => 100.040 MB [other   0.000 MB]
+iter   7 =>  79.524 MB [other   0.000 MB]
+iter   8 =>  59.008 MB [other   0.000 MB]
+iter   9 =>  38.492 MB [other   0.000 MB]
+iter  10 =>  17.976 MB [other   0.000 MB]
+iter  11 =>   4.103 MB [other   0.000 MB]
+==== Test AutoCompactTest.ReadHalf
+iter   1 =>  50.017 MB [other  50.023 MB]
+iter   2 =>  50.020 MB [other  50.021 MB]
+iter   3 =>  50.020 MB [other  50.021 MB]
+iter   4 =>  50.020 MB [other  50.021 MB]
+iter   5 =>  50.020 MB [other  50.021 MB]
+iter   6 =>  50.020 MB [other  50.021 MB]
+iter   7 =>  29.504 MB [other  50.021 MB]
+iter   8 =>   8.988 MB [other  50.021 MB]
+iter   9 =>   4.103 MB [other  34.389 MB]
+==== PASSED 2 tests
+==20309== 
+==20309== HEAP SUMMARY:
+==20309==     in use at exit: 1,272 bytes in 7 blocks
+==20309==   total heap usage: 64,853 allocs, 64,846 frees, 2,423,273,527 bytes allocated
+==20309== 
+==20309== LEAK SUMMARY:
+==20309==    definitely lost: 0 bytes in 0 blocks
+==20309==    indirectly lost: 0 bytes in 0 blocks
+==20309==      possibly lost: 288 bytes in 1 blocks
+==20309==    still reachable: 984 bytes in 6 blocks
+==20309==         suppressed: 0 bytes in 0 blocks
+==20309== Rerun with --leak-check=full to see details of leaked memory
+==20309== 
+==20309== For counts of detected and suppressed errors, rerun with: -v
+==20309== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running c_test
+==20314== Memcheck, a memory error detector
+==20314== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20314== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20314== Command: out-static/c_test
+==20314== 
+=== Test create_objects
+=== Test destroy
+=== Test open_error
+=== Test leveldb_free
+=== Test open
+=== Test put
+=== Test compactall
+=== Test compactrange
+=== Test writebatch
+=== Test iter
+=== Test approximate_sizes
+=== Test property
+=== Test snapshot
+=== Test repair
+=== Test filter
+=== Test cleanup
+PASS
+==20314== 
+==20314== HEAP SUMMARY:
+==20314==     in use at exit: 1,200 bytes in 5 blocks
+==20314==   total heap usage: 90,298 allocs, 90,293 frees, 10,189,578 bytes allocated
+==20314== 
+==20314== LEAK SUMMARY:
+==20314==    definitely lost: 0 bytes in 0 blocks
+==20314==    indirectly lost: 0 bytes in 0 blocks
+==20314==      possibly lost: 288 bytes in 1 blocks
+==20314==    still reachable: 912 bytes in 4 blocks
+==20314==         suppressed: 0 bytes in 0 blocks
+==20314== Rerun with --leak-check=full to see details of leaked memory
+==20314== 
+==20314== For counts of detected and suppressed errors, rerun with: -v
+==20314== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running corruption_test
+==20316== Memcheck, a memory error detector
+==20316== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20316== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20316== Command: out-static/corruption_test
+==20316== 
+==== Test CorruptionTest.Recovery
+expected=100..100; got=100; bad_keys=0; bad_values=0; missed=0
+expected=36..36; got=36; bad_keys=0; bad_values=0; missed=64
+==== Test CorruptionTest.RecoverWriteError
+==== Test CorruptionTest.NewFileErrorDuringWrite
+==== Test CorruptionTest.TableFile
+expected=90..99; got=98; bad_keys=0; bad_values=2; missed=0
+==== Test CorruptionTest.TableFileRepair
+expected=95..99; got=98; bad_keys=0; bad_values=0; missed=2
+==== Test CorruptionTest.TableFileIndexData
+expected=5000..9999; got=7962; bad_keys=0; bad_values=0; missed=0
+==== Test CorruptionTest.MissingDescriptor
+expected=1000..1000; got=1000; bad_keys=0; bad_values=0; missed=0
+==== Test CorruptionTest.SequenceNumberRecovery
+==== Test CorruptionTest.CorruptedDescriptor
+==== Test CorruptionTest.CompactionInputError
+expected=5..9; got=8; bad_keys=0; bad_values=2; missed=0
+expected=10000..10000; got=10000; bad_keys=0; bad_values=0; missed=0
+==== Test CorruptionTest.CompactionInputErrorParanoid
+==== Test CorruptionTest.UnrelatedKeys
+==== PASSED 12 tests
+==20316== 
+==20316== HEAP SUMMARY:
+==20316==     in use at exit: 1,608 bytes in 7 blocks
+==20316==   total heap usage: 75,140 allocs, 75,133 frees, 242,190,346 bytes allocated
+==20316== 
+==20316== LEAK SUMMARY:
+==20316==    definitely lost: 0 bytes in 0 blocks
+==20316==    indirectly lost: 0 bytes in 0 blocks
+==20316==      possibly lost: 288 bytes in 1 blocks
+==20316==    still reachable: 1,320 bytes in 6 blocks
+==20316==         suppressed: 0 bytes in 0 blocks
+==20316== Rerun with --leak-check=full to see details of leaked memory
+==20316== 
+==20316== For counts of detected and suppressed errors, rerun with: -v
+==20316== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running db_test
+==20319== Memcheck, a memory error detector
+==20319== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20319== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20319== Command: out-static/db_test
+==20319== 
+==== Test DBTest.Empty
+==== Test DBTest.ReadWrite
+==== Test DBTest.PutDeleteGet
+==== Test DBTest.GetFromImmutableLayer
+==== Test DBTest.GetFromVersions
+==== Test DBTest.GetMemUsage
+==== Test DBTest.GetSnapshot
+==== Test DBTest.GetLevel0Ordering
+==== Test DBTest.GetOrderedByLevels
+==== Test DBTest.GetPicksCorrectFile
+==== Test DBTest.GetEncountersEmptyLevel
+==== Test DBTest.IterEmpty
+==== Test DBTest.IterSingle
+==== Test DBTest.IterMulti
+==== Test DBTest.IterSmallAndLargeMix
+==== Test DBTest.IterMultiWithDelete
+==== Test DBTest.Recover
+==== Test DBTest.RecoveryWithEmptyLog
+==== Test DBTest.RecoverDuringMemtableCompaction
+==== Test DBTest.MinorCompactionsHappen
+==== Test DBTest.RecoverWithLargeLog
+==== Test DBTest.CompactionsGenerateMultipleFiles
+==== Test DBTest.RepeatedWritesToSameKey
+after 1: 0 files
+after 2: 0 files
+after 3: 1 files
+after 4: 2 files
+after 5: 3 files
+after 6: 4 files
+after 7: 5 files
+after 8: 6 files
+after 9: 7 files
+after 10: 4 files
+after 11: 5 files
+after 12: 6 files
+after 13: 7 files
+after 14: 4 files
+after 15: 5 files
+after 16: 6 files
+after 17: 7 files
+after 18: 4 files
+after 19: 5 files
+after 20: 6 files
+after 21: 7 files
+after 22: 4 files
+after 23: 5 files
+after 24: 6 files
+after 25: 7 files
+after 26: 4 files
+after 27: 5 files
+after 28: 6 files
+after 29: 7 files
+after 30: 4 files
+after 31: 5 files
+after 32: 6 files
+after 33: 7 files
+after 34: 4 files
+after 35: 5 files
+after 36: 6 files
+after 37: 7 files
+after 38: 4 files
+after 39: 5 files
+after 40: 6 files
+after 41: 7 files
+after 42: 4 files
+after 43: 5 files
+after 44: 6 files
+after 45: 7 files
+after 46: 4 files
+after 47: 5 files
+after 48: 6 files
+after 49: 7 files
+after 50: 4 files
+after 51: 5 files
+after 52: 6 files
+after 53: 7 files
+after 54: 4 files
+after 55: 5 files
+after 56: 6 files
+after 57: 7 files
+after 58: 4 files
+after 59: 5 files
+after 60: 6 files
+after 61: 7 files
+after 62: 4 files
+after 63: 5 files
+after 64: 6 files
+after 65: 7 files
+after 66: 4 files
+after 67: 5 files
+after 68: 6 files
+after 69: 7 files
+after 70: 4 files
+after 71: 5 files
+after 72: 6 files
+after 73: 7 files
+after 74: 4 files
+after 75: 5 files
+after 76: 6 files
+after 77: 7 files
+after 78: 4 files
+after 79: 5 files
+after 80: 6 files
+after 81: 7 files
+after 82: 4 files
+after 83: 5 files
+after 84: 6 files
+after 85: 7 files
+after 86: 4 files
+after 87: 5 files
+after 88: 6 files
+after 89: 7 files
+after 90: 4 files
+after 91: 5 files
+after 92: 6 files
+after 93: 7 files
+after 94: 4 files
+after 95: 5 files
+==== Test DBTest.SparseMerge
+==== Test DBTest.ApproximateSizes
+==== Test DBTest.ApproximateSizes_MixOfSmallAndLarge
+==== Test DBTest.IteratorPinsRef
+==== Test DBTest.Snapshot
+==== Test DBTest.HiddenValuesAreRemoved
+==== Test DBTest.DeletionMarkers1
+==== Test DBTest.DeletionMarkers2
+==== Test DBTest.OverlapInLevel0
+==== Test DBTest.L0_CompactionBug_Issue44_a
+==== Test DBTest.L0_CompactionBug_Issue44_b
+==== Test DBTest.ComparatorCheck
+==== Test DBTest.CustomComparator
+==== Test DBTest.ManualCompaction
+==== Test DBTest.DBOpen_Options
+==== Test DBTest.Locking
+==== Test DBTest.NoSpace
+==== Test DBTest.NonWritableFileSystem
+iter 0; errors 0
+iter 1; errors 0
+iter 2; errors 1
+iter 3; errors 2
+iter 4; errors 3
+iter 5; errors 4
+iter 6; errors 5
+iter 7; errors 6
+iter 8; errors 7
+iter 9; errors 8
+iter 10; errors 9
+iter 11; errors 10
+iter 12; errors 11
+iter 13; errors 12
+iter 14; errors 13
+iter 15; errors 14
+iter 16; errors 15
+iter 17; errors 16
+iter 18; errors 17
+iter 19; errors 18
+==== Test DBTest.WriteSyncError
+==== Test DBTest.ManifestWriteError
+==== Test DBTest.MissingSSTFile
+==== Test DBTest.StillReadSST
+==== Test DBTest.FilesDeletedAfterCompaction
+==== Test DBTest.BloomFilter
+10000 present => 10070 reads
+10000 missing => 174 reads
+==== Test DBTest.MultiThreaded
+... starting thread 1
+... starting thread 0
+... starting thread 3
+... starting thread 2
+... stopping thread 1 after 9743 ops
+... stopping thread 2 after 7825 ops
+... stopping thread 3 after 9198 ops
+... stopping thread 0 after 8719 ops
+... starting thread 0
+... starting thread 3
+... starting thread 2
+... starting thread 1
+... stopping thread 0 after 11076 ops
+... stopping thread 2 after 10121 ops
+... stopping thread 1 after 7026 ops
+... stopping thread 3 after 7664 ops
+... starting thread 1
+... starting thread 2
+... starting thread 0
+... starting thread 3
+... stopping thread 0 after 9165 ops
+... stopping thread 3 after 7817 ops
+... stopping thread 2 after 9161 ops
+... stopping thread 1 after 9219 ops
+... starting thread 1
+... starting thread 0
+... starting thread 3
+... starting thread 2
+... stopping thread 2 after 7773 ops
+... stopping thread 3 after 11076 ops
+... stopping thread 0 after 8574 ops
+... stopping thread 1 after 9631 ops
+==== Test DBTest.Randomized
+Step 0 of 10000
+1 entries compared: ok=1
+1 entries compared: ok=1
+1 entries compared: ok=1
+Step 100 of 10000
+36 entries compared: ok=1
+1 entries compared: ok=1
+36 entries compared: ok=1
+Step 200 of 10000
+70 entries compared: ok=1
+36 entries compared: ok=1
+70 entries compared: ok=1
+Step 300 of 10000
+101 entries compared: ok=1
+70 entries compared: ok=1
+101 entries compared: ok=1
+Step 400 of 10000
+126 entries compared: ok=1
+101 entries compared: ok=1
+126 entries compared: ok=1
+Step 500 of 10000
+161 entries compared: ok=1
+126 entries compared: ok=1
+161 entries compared: ok=1
+Step 600 of 10000
+189 entries compared: ok=1
+161 entries compared: ok=1
+189 entries compared: ok=1
+Step 700 of 10000
+221 entries compared: ok=1
+189 entries compared: ok=1
+221 entries compared: ok=1
+Step 800 of 10000
+259 entries compared: ok=1
+221 entries compared: ok=1
+259 entries compared: ok=1
+Step 900 of 10000
+285 entries compared: ok=1
+259 entries compared: ok=1
+285 entries compared: ok=1
+Step 1000 of 10000
+313 entries compared: ok=1
+285 entries compared: ok=1
+313 entries compared: ok=1
+Step 1100 of 10000
+343 entries compared: ok=1
+313 entries compared: ok=1
+343 entries compared: ok=1
+Step 1200 of 10000
+372 entries compared: ok=1
+343 entries compared: ok=1
+372 entries compared: ok=1
+Step 1300 of 10000
+403 entries compared: ok=1
+372 entries compared: ok=1
+403 entries compared: ok=1
+Step 1400 of 10000
+440 entries compared: ok=1
+403 entries compared: ok=1
+440 entries compared: ok=1
+Step 1500 of 10000
+477 entries compared: ok=1
+440 entries compared: ok=1
+477 entries compared: ok=1
+Step 1600 of 10000
+505 entries compared: ok=1
+477 entries compared: ok=1
+505 entries compared: ok=1
+Step 1700 of 10000
+539 entries compared: ok=1
+505 entries compared: ok=1
+539 entries compared: ok=1
+Step 1800 of 10000
+560 entries compared: ok=1
+539 entries compared: ok=1
+560 entries compared: ok=1
+Step 1900 of 10000
+591 entries compared: ok=1
+560 entries compared: ok=1
+591 entries compared: ok=1
+Step 2000 of 10000
+616 entries compared: ok=1
+591 entries compared: ok=1
+616 entries compared: ok=1
+Step 2100 of 10000
+649 entries compared: ok=1
+616 entries compared: ok=1
+649 entries compared: ok=1
+Step 2200 of 10000
+675 entries compared: ok=1
+649 entries compared: ok=1
+675 entries compared: ok=1
+Step 2300 of 10000
+692 entries compared: ok=1
+675 entries compared: ok=1
+692 entries compared: ok=1
+Step 2400 of 10000
+718 entries compared: ok=1
+692 entries compared: ok=1
+718 entries compared: ok=1
+Step 2500 of 10000
+742 entries compared: ok=1
+718 entries compared: ok=1
+742 entries compared: ok=1
+Step 2600 of 10000
+770 entries compared: ok=1
+742 entries compared: ok=1
+770 entries compared: ok=1
+Step 2700 of 10000
+798 entries compared: ok=1
+770 entries compared: ok=1
+798 entries compared: ok=1
+Step 2800 of 10000
+829 entries compared: ok=1
+798 entries compared: ok=1
+829 entries compared: ok=1
+Step 2900 of 10000
+851 entries compared: ok=1
+829 entries compared: ok=1
+851 entries compared: ok=1
+Step 3000 of 10000
+874 entries compared: ok=1
+851 entries compared: ok=1
+874 entries compared: ok=1
+Step 3100 of 10000
+900 entries compared: ok=1
+874 entries compared: ok=1
+900 entries compared: ok=1
+Step 3200 of 10000
+919 entries compared: ok=1
+900 entries compared: ok=1
+919 entries compared: ok=1
+Step 3300 of 10000
+954 entries compared: ok=1
+919 entries compared: ok=1
+954 entries compared: ok=1
+Step 3400 of 10000
+992 entries compared: ok=1
+954 entries compared: ok=1
+992 entries compared: ok=1
+Step 3500 of 10000
+1018 entries compared: ok=1
+992 entries compared: ok=1
+1018 entries compared: ok=1
+Step 3600 of 10000
+1046 entries compared: ok=1
+1018 entries compared: ok=1
+1046 entries compared: ok=1
+Step 3700 of 10000
+1082 entries compared: ok=1
+1046 entries compared: ok=1
+1082 entries compared: ok=1
+Step 3800 of 10000
+1103 entries compared: ok=1
+1082 entries compared: ok=1
+1103 entries compared: ok=1
+Step 3900 of 10000
+1132 entries compared: ok=1
+1103 entries compared: ok=1
+1132 entries compared: ok=1
+Step 4000 of 10000
+1150 entries compared: ok=1
+1132 entries compared: ok=1
+1150 entries compared: ok=1
+Step 4100 of 10000
+1187 entries compared: ok=1
+1150 entries compared: ok=1
+1187 entries compared: ok=1
+Step 4200 of 10000
+1217 entries compared: ok=1
+1187 entries compared: ok=1
+1217 entries compared: ok=1
+Step 4300 of 10000
+1241 entries compared: ok=1
+1217 entries compared: ok=1
+1241 entries compared: ok=1
+Step 4400 of 10000
+1267 entries compared: ok=1
+1241 entries compared: ok=1
+1267 entries compared: ok=1
+Step 4500 of 10000
+1290 entries compared: ok=1
+1267 entries compared: ok=1
+1290 entries compared: ok=1
+Step 4600 of 10000
+1317 entries compared: ok=1
+1290 entries compared: ok=1
+1317 entries compared: ok=1
+Step 4700 of 10000
+1336 entries compared: ok=1
+1317 entries compared: ok=1
+1336 entries compared: ok=1
+Step 4800 of 10000
+1358 entries compared: ok=1
+1336 entries compared: ok=1
+1358 entries compared: ok=1
+Step 4900 of 10000
+1384 entries compared: ok=1
+1358 entries compared: ok=1
+1384 entries compared: ok=1
+Step 5000 of 10000
+1421 entries compared: ok=1
+1384 entries compared: ok=1
+1421 entries compared: ok=1
+Step 5100 of 10000
+1447 entries compared: ok=1
+1421 entries compared: ok=1
+1447 entries compared: ok=1
+Step 5200 of 10000
+1478 entries compared: ok=1
+1447 entries compared: ok=1
+1478 entries compared: ok=1
+Step 5300 of 10000
+1509 entries compared: ok=1
+1478 entries compared: ok=1
+1509 entries compared: ok=1
+Step 5400 of 10000
+1529 entries compared: ok=1
+1509 entries compared: ok=1
+1529 entries compared: ok=1
+Step 5500 of 10000
+1543 entries compared: ok=1
+1529 entries compared: ok=1
+1543 entries compared: ok=1
+Step 5600 of 10000
+1557 entries compared: ok=1
+1543 entries compared: ok=1
+1557 entries compared: ok=1
+Step 5700 of 10000
+1567 entries compared: ok=1
+1557 entries compared: ok=1
+1567 entries compared: ok=1
+Step 5800 of 10000
+1596 entries compared: ok=1
+1567 entries compared: ok=1
+1596 entries compared: ok=1
+Step 5900 of 10000
+1620 entries compared: ok=1
+1596 entries compared: ok=1
+1620 entries compared: ok=1
+Step 6000 of 10000
+1657 entries compared: ok=1
+1620 entries compared: ok=1
+1657 entries compared: ok=1
+Step 6100 of 10000
+1683 entries compared: ok=1
+1657 entries compared: ok=1
+1683 entries compared: ok=1
+Step 6200 of 10000
+1711 entries compared: ok=1
+1683 entries compared: ok=1
+1711 entries compared: ok=1
+Step 6300 of 10000
+1741 entries compared: ok=1
+1711 entries compared: ok=1
+1741 entries compared: ok=1
+Step 6400 of 10000
+1769 entries compared: ok=1
+1741 entries compared: ok=1
+1769 entries compared: ok=1
+Step 6500 of 10000
+1805 entries compared: ok=1
+1769 entries compared: ok=1
+1805 entries compared: ok=1
+Step 6600 of 10000
+1839 entries compared: ok=1
+1805 entries compared: ok=1
+1839 entries compared: ok=1
+Step 6700 of 10000
+1879 entries compared: ok=1
+1839 entries compared: ok=1
+1879 entries compared: ok=1
+Step 6800 of 10000
+1905 entries compared: ok=1
+1879 entries compared: ok=1
+1905 entries compared: ok=1
+Step 6900 of 10000
+1924 entries compared: ok=1
+1905 entries compared: ok=1
+1924 entries compared: ok=1
+Step 7000 of 10000
+1957 entries compared: ok=1
+1924 entries compared: ok=1
+1957 entries compared: ok=1
+Step 7100 of 10000
+1990 entries compared: ok=1
+1957 entries compared: ok=1
+1990 entries compared: ok=1
+Step 7200 of 10000
+2012 entries compared: ok=1
+1990 entries compared: ok=1
+2012 entries compared: ok=1
+Step 7300 of 10000
+2040 entries compared: ok=1
+2012 entries compared: ok=1
+2040 entries compared: ok=1
+Step 7400 of 10000
+2071 entries compared: ok=1
+2040 entries compared: ok=1
+2071 entries compared: ok=1
+Step 7500 of 10000
+2087 entries compared: ok=1
+2071 entries compared: ok=1
+2087 entries compared: ok=1
+Step 7600 of 10000
+2113 entries compared: ok=1
+2087 entries compared: ok=1
+2113 entries compared: ok=1
+Step 7700 of 10000
+2143 entries compared: ok=1
+2113 entries compared: ok=1
+2143 entries compared: ok=1
+Step 7800 of 10000
+2164 entries compared: ok=1
+2143 entries compared: ok=1
+2164 entries compared: ok=1
+Step 7900 of 10000
+2193 entries compared: ok=1
+2164 entries compared: ok=1
+2193 entries compared: ok=1
+Step 8000 of 10000
+2223 entries compared: ok=1
+2193 entries compared: ok=1
+2223 entries compared: ok=1
+Step 8100 of 10000
+2244 entries compared: ok=1
+2223 entries compared: ok=1
+2244 entries compared: ok=1
+Step 8200 of 10000
+2266 entries compared: ok=1
+2244 entries compared: ok=1
+2266 entries compared: ok=1
+Step 8300 of 10000
+2306 entries compared: ok=1
+2266 entries compared: ok=1
+2306 entries compared: ok=1
+Step 8400 of 10000
+2326 entries compared: ok=1
+2306 entries compared: ok=1
+2326 entries compared: ok=1
+Step 8500 of 10000
+2352 entries compared: ok=1
+2326 entries compared: ok=1
+2352 entries compared: ok=1
+Step 8600 of 10000
+2371 entries compared: ok=1
+2352 entries compared: ok=1
+2371 entries compared: ok=1
+Step 8700 of 10000
+2402 entries compared: ok=1
+2371 entries compared: ok=1
+2402 entries compared: ok=1
+Step 8800 of 10000
+2431 entries compared: ok=1
+2402 entries compared: ok=1
+2431 entries compared: ok=1
+Step 8900 of 10000
+2470 entries compared: ok=1
+2431 entries compared: ok=1
+2470 entries compared: ok=1
+Step 9000 of 10000
+2492 entries compared: ok=1
+2470 entries compared: ok=1
+2492 entries compared: ok=1
+Step 9100 of 10000
+2512 entries compared: ok=1
+2492 entries compared: ok=1
+2512 entries compared: ok=1
+Step 9200 of 10000
+2536 entries compared: ok=1
+2512 entries compared: ok=1
+2536 entries compared: ok=1
+Step 9300 of 10000
+2562 entries compared: ok=1
+2536 entries compared: ok=1
+2562 entries compared: ok=1
+Step 9400 of 10000
+2579 entries compared: ok=1
+2562 entries compared: ok=1
+2579 entries compared: ok=1
+Step 9500 of 10000
+2612 entries compared: ok=1
+2579 entries compared: ok=1
+2612 entries compared: ok=1
+Step 9600 of 10000
+2641 entries compared: ok=1
+2612 entries compared: ok=1
+2641 entries compared: ok=1
+Step 9700 of 10000
+2657 entries compared: ok=1
+2641 entries compared: ok=1
+2657 entries compared: ok=1
+Step 9800 of 10000
+2684 entries compared: ok=1
+2657 entries compared: ok=1
+2684 entries compared: ok=1
+Step 9900 of 10000
+2705 entries compared: ok=1
+2684 entries compared: ok=1
+2705 entries compared: ok=1
+Step 0 of 10000
+0 entries compared: ok=1
+0 entries compared: ok=1
+0 entries compared: ok=1
+Step 100 of 10000
+32 entries compared: ok=1
+0 entries compared: ok=1
+32 entries compared: ok=1
+Step 200 of 10000
+62 entries compared: ok=1
+32 entries compared: ok=1
+62 entries compared: ok=1
+Step 300 of 10000
+91 entries compared: ok=1
+62 entries compared: ok=1
+91 entries compared: ok=1
+Step 400 of 10000
+132 entries compared: ok=1
+91 entries compared: ok=1
+132 entries compared: ok=1
+Step 500 of 10000
+165 entries compared: ok=1
+132 entries compared: ok=1
+165 entries compared: ok=1
+Step 600 of 10000
+191 entries compared: ok=1
+165 entries compared: ok=1
+191 entries compared: ok=1
+Step 700 of 10000
+225 entries compared: ok=1
+191 entries compared: ok=1
+225 entries compared: ok=1
+Step 800 of 10000
+248 entries compared: ok=1
+225 entries compared: ok=1
+248 entries compared: ok=1
+Step 900 of 10000
+278 entries compared: ok=1
+248 entries compared: ok=1
+278 entries compared: ok=1
+Step 1000 of 10000
+304 entries compared: ok=1
+278 entries compared: ok=1
+304 entries compared: ok=1
+Step 1100 of 10000
+330 entries compared: ok=1
+304 entries compared: ok=1
+330 entries compared: ok=1
+Step 1200 of 10000
+371 entries compared: ok=1
+330 entries compared: ok=1
+371 entries compared: ok=1
+Step 1300 of 10000
+392 entries compared: ok=1
+371 entries compared: ok=1
+392 entries compared: ok=1
+Step 1400 of 10000
+423 entries compared: ok=1
+392 entries compared: ok=1
+423 entries compared: ok=1
+Step 1500 of 10000
+456 entries compared: ok=1
+423 entries compared: ok=1
+456 entries compared: ok=1
+Step 1600 of 10000
+487 entries compared: ok=1
+456 entries compared: ok=1
+487 entries compared: ok=1
+Step 1700 of 10000
+509 entries compared: ok=1
+487 entries compared: ok=1
+509 entries compared: ok=1
+Step 1800 of 10000
+538 entries compared: ok=1
+509 entries compared: ok=1
+538 entries compared: ok=1
+Step 1900 of 10000
+562 entries compared: ok=1
+538 entries compared: ok=1
+562 entries compared: ok=1
+Step 2000 of 10000
+584 entries compared: ok=1
+562 entries compared: ok=1
+584 entries compared: ok=1
+Step 2100 of 10000
+622 entries compared: ok=1
+584 entries compared: ok=1
+622 entries compared: ok=1
+Step 2200 of 10000
+648 entries compared: ok=1
+622 entries compared: ok=1
+648 entries compared: ok=1
+Step 2300 of 10000
+669 entries compared: ok=1
+648 entries compared: ok=1
+669 entries compared: ok=1
+Step 2400 of 10000
+688 entries compared: ok=1
+669 entries compared: ok=1
+688 entries compared: ok=1
+Step 2500 of 10000
+711 entries compared: ok=1
+688 entries compared: ok=1
+711 entries compared: ok=1
+Step 2600 of 10000
+739 entries compared: ok=1
+711 entries compared: ok=1
+739 entries compared: ok=1
+Step 2700 of 10000
+759 entries compared: ok=1
+739 entries compared: ok=1
+759 entries compared: ok=1
+Step 2800 of 10000
+792 entries compared: ok=1
+759 entries compared: ok=1
+792 entries compared: ok=1
+Step 2900 of 10000
+819 entries compared: ok=1
+792 entries compared: ok=1
+819 entries compared: ok=1
+Step 3000 of 10000
+859 entries compared: ok=1
+819 entries compared: ok=1
+859 entries compared: ok=1
+Step 3100 of 10000
+876 entries compared: ok=1
+859 entries compared: ok=1
+876 entries compared: ok=1
+Step 3200 of 10000
+908 entries compared: ok=1
+876 entries compared: ok=1
+908 entries compared: ok=1
+Step 3300 of 10000
+938 entries compared: ok=1
+908 entries compared: ok=1
+938 entries compared: ok=1
+Step 3400 of 10000
+965 entries compared: ok=1
+938 entries compared: ok=1
+965 entries compared: ok=1
+Step 3500 of 10000
+989 entries compared: ok=1
+965 entries compared: ok=1
+989 entries compared: ok=1
+Step 3600 of 10000
+1029 entries compared: ok=1
+989 entries compared: ok=1
+1029 entries compared: ok=1
+Step 3700 of 10000
+1062 entries compared: ok=1
+1029 entries compared: ok=1
+1062 entries compared: ok=1
+Step 3800 of 10000
+1083 entries compared: ok=1
+1062 entries compared: ok=1
+1083 entries compared: ok=1
+Step 3900 of 10000
+1113 entries compared: ok=1
+1083 entries compared: ok=1
+1113 entries compared: ok=1
+Step 4000 of 10000
+1142 entries compared: ok=1
+1113 entries compared: ok=1
+1142 entries compared: ok=1
+Step 4100 of 10000
+1164 entries compared: ok=1
+1142 entries compared: ok=1
+1164 entries compared: ok=1
+Step 4200 of 10000
+1186 entries compared: ok=1
+1164 entries compared: ok=1
+1186 entries compared: ok=1
+Step 4300 of 10000
+1210 entries compared: ok=1
+1186 entries compared: ok=1
+1210 entries compared: ok=1
+Step 4400 of 10000
+1234 entries compared: ok=1
+1210 entries compared: ok=1
+1234 entries compared: ok=1
+Step 4500 of 10000
+1268 entries compared: ok=1
+1234 entries compared: ok=1
+1268 entries compared: ok=1
+Step 4600 of 10000
+1293 entries compared: ok=1
+1268 entries compared: ok=1
+1293 entries compared: ok=1
+Step 4700 of 10000
+1311 entries compared: ok=1
+1293 entries compared: ok=1
+1311 entries compared: ok=1
+Step 4800 of 10000
+1340 entries compared: ok=1
+1311 entries compared: ok=1
+1340 entries compared: ok=1
+Step 4900 of 10000
+1368 entries compared: ok=1
+1340 entries compared: ok=1
+1368 entries compared: ok=1
+Step 5000 of 10000
+1387 entries compared: ok=1
+1368 entries compared: ok=1
+1387 entries compared: ok=1
+Step 5100 of 10000
+1417 entries compared: ok=1
+1387 entries compared: ok=1
+1417 entries compared: ok=1
+Step 5200 of 10000
+1447 entries compared: ok=1
+1417 entries compared: ok=1
+1447 entries compared: ok=1
+Step 5300 of 10000
+1481 entries compared: ok=1
+1447 entries compared: ok=1
+1481 entries compared: ok=1
+Step 5400 of 10000
+1515 entries compared: ok=1
+1481 entries compared: ok=1
+1515 entries compared: ok=1
+Step 5500 of 10000
+1540 entries compared: ok=1
+1515 entries compared: ok=1
+1540 entries compared: ok=1
+Step 5600 of 10000
+1573 entries compared: ok=1
+1540 entries compared: ok=1
+1573 entries compared: ok=1
+Step 5700 of 10000
+1606 entries compared: ok=1
+1573 entries compared: ok=1
+1606 entries compared: ok=1
+Step 5800 of 10000
+1636 entries compared: ok=1
+1606 entries compared: ok=1
+1636 entries compared: ok=1
+Step 5900 of 10000
+1655 entries compared: ok=1
+1636 entries compared: ok=1
+1655 entries compared: ok=1
+Step 6000 of 10000
+1679 entries compared: ok=1
+1655 entries compared: ok=1
+1679 entries compared: ok=1
+Step 6100 of 10000
+1711 entries compared: ok=1
+1679 entries compared: ok=1
+1711 entries compared: ok=1
+Step 6200 of 10000
+1734 entries compared: ok=1
+1711 entries compared: ok=1
+1734 entries compared: ok=1
+Step 6300 of 10000
+1766 entries compared: ok=1
+1734 entries compared: ok=1
+1766 entries compared: ok=1
+Step 6400 of 10000
+1791 entries compared: ok=1
+1766 entries compared: ok=1
+1791 entries compared: ok=1
+Step 6500 of 10000
+1832 entries compared: ok=1
+1791 entries compared: ok=1
+1832 entries compared: ok=1
+Step 6600 of 10000
+1855 entries compared: ok=1
+1832 entries compared: ok=1
+1855 entries compared: ok=1
+Step 6700 of 10000
+1867 entries compared: ok=1
+1855 entries compared: ok=1
+1867 entries compared: ok=1
+Step 6800 of 10000
+1896 entries compared: ok=1
+1867 entries compared: ok=1
+1896 entries compared: ok=1
+Step 6900 of 10000
+1921 entries compared: ok=1
+1896 entries compared: ok=1
+1921 entries compared: ok=1
+Step 7000 of 10000
+1956 entries compared: ok=1
+1921 entries compared: ok=1
+1956 entries compared: ok=1
+Step 7100 of 10000
+1974 entries compared: ok=1
+1956 entries compared: ok=1
+1974 entries compared: ok=1
+Step 7200 of 10000
+2013 entries compared: ok=1
+1974 entries compared: ok=1
+2013 entries compared: ok=1
+Step 7300 of 10000
+2044 entries compared: ok=1
+2013 entries compared: ok=1
+2044 entries compared: ok=1
+Step 7400 of 10000
+2068 entries compared: ok=1
+2044 entries compared: ok=1
+2068 entries compared: ok=1
+Step 7500 of 10000
+2095 entries compared: ok=1
+2068 entries compared: ok=1
+2095 entries compared: ok=1
+Step 7600 of 10000
+2139 entries compared: ok=1
+2095 entries compared: ok=1
+2139 entries compared: ok=1
+Step 7700 of 10000
+2161 entries compared: ok=1
+2139 entries compared: ok=1
+2161 entries compared: ok=1
+Step 7800 of 10000
+2183 entries compared: ok=1
+2161 entries compared: ok=1
+2183 entries compared: ok=1
+Step 7900 of 10000
+2199 entries compared: ok=1
+2183 entries compared: ok=1
+2199 entries compared: ok=1
+Step 8000 of 10000
+2218 entries compared: ok=1
+2199 entries compared: ok=1
+2218 entries compared: ok=1
+Step 8100 of 10000
+2243 entries compared: ok=1
+2218 entries compared: ok=1
+2243 entries compared: ok=1
+Step 8200 of 10000
+2271 entries compared: ok=1
+2243 entries compared: ok=1
+2271 entries compared: ok=1
+Step 8300 of 10000
+2301 entries compared: ok=1
+2271 entries compared: ok=1
+2301 entries compared: ok=1
+Step 8400 of 10000
+2333 entries compared: ok=1
+2301 entries compared: ok=1
+2333 entries compared: ok=1
+Step 8500 of 10000
+2357 entries compared: ok=1
+2333 entries compared: ok=1
+2357 entries compared: ok=1
+Step 8600 of 10000
+2381 entries compared: ok=1
+2357 entries compared: ok=1
+2381 entries compared: ok=1
+Step 8700 of 10000
+2409 entries compared: ok=1
+2381 entries compared: ok=1
+2409 entries compared: ok=1
+Step 8800 of 10000
+2441 entries compared: ok=1
+2409 entries compared: ok=1
+2441 entries compared: ok=1
+Step 8900 of 10000
+2466 entries compared: ok=1
+2441 entries compared: ok=1
+2466 entries compared: ok=1
+Step 9000 of 10000
+2500 entries compared: ok=1
+2466 entries compared: ok=1
+2500 entries compared: ok=1
+Step 9100 of 10000
+2529 entries compared: ok=1
+2500 entries compared: ok=1
+2529 entries compared: ok=1
+Step 9200 of 10000
+2550 entries compared: ok=1
+2529 entries compared: ok=1
+2550 entries compared: ok=1
+Step 9300 of 10000
+2580 entries compared: ok=1
+2550 entries compared: ok=1
+2580 entries compared: ok=1
+Step 9400 of 10000
+2599 entries compared: ok=1
+2580 entries compared: ok=1
+2599 entries compared: ok=1
+Step 9500 of 10000
+2627 entries compared: ok=1
+2599 entries compared: ok=1
+2627 entries compared: ok=1
+Step 9600 of 10000
+2659 entries compared: ok=1
+2627 entries compared: ok=1
+2659 entries compared: ok=1
+Step 9700 of 10000
+2688 entries compared: ok=1
+2659 entries compared: ok=1
+2688 entries compared: ok=1
+Step 9800 of 10000
+2717 entries compared: ok=1
+2688 entries compared: ok=1
+2717 entries compared: ok=1
+Step 9900 of 10000
+2740 entries compared: ok=1
+2717 entries compared: ok=1
+2740 entries compared: ok=1
+Step 0 of 10000
+3 entries compared: ok=1
+3 entries compared: ok=1
+3 entries compared: ok=1
+Step 100 of 10000
+38 entries compared: ok=1
+3 entries compared: ok=1
+38 entries compared: ok=1
+Step 200 of 10000
+75 entries compared: ok=1
+38 entries compared: ok=1
+75 entries compared: ok=1
+Step 300 of 10000
+104 entries compared: ok=1
+75 entries compared: ok=1
+104 entries compared: ok=1
+Step 400 of 10000
+132 entries compared: ok=1
+104 entries compared: ok=1
+132 entries compared: ok=1
+Step 500 of 10000
+175 entries compared: ok=1
+132 entries compared: ok=1
+175 entries compared: ok=1
+Step 600 of 10000
+207 entries compared: ok=1
+175 entries compared: ok=1
+207 entries compared: ok=1
+Step 700 of 10000
+230 entries compared: ok=1
+207 entries compared: ok=1
+230 entries compared: ok=1
+Step 800 of 10000
+269 entries compared: ok=1
+230 entries compared: ok=1
+269 entries compared: ok=1
+Step 900 of 10000
+295 entries compared: ok=1
+269 entries compared: ok=1
+295 entries compared: ok=1
+Step 1000 of 10000
+323 entries compared: ok=1
+295 entries compared: ok=1
+323 entries compared: ok=1
+Step 1100 of 10000
+360 entries compared: ok=1
+323 entries compared: ok=1
+360 entries compared: ok=1
+Step 1200 of 10000
+384 entries compared: ok=1
+360 entries compared: ok=1
+384 entries compared: ok=1
+Step 1300 of 10000
+430 entries compared: ok=1
+384 entries compared: ok=1
+430 entries compared: ok=1
+Step 1400 of 10000
+450 entries compared: ok=1
+430 entries compared: ok=1
+450 entries compared: ok=1
+Step 1500 of 10000
+479 entries compared: ok=1
+450 entries compared: ok=1
+479 entries compared: ok=1
+Step 1600 of 10000
+502 entries compared: ok=1
+479 entries compared: ok=1
+502 entries compared: ok=1
+Step 1700 of 10000
+533 entries compared: ok=1
+502 entries compared: ok=1
+533 entries compared: ok=1
+Step 1800 of 10000
+559 entries compared: ok=1
+533 entries compared: ok=1
+559 entries compared: ok=1
+Step 1900 of 10000
+589 entries compared: ok=1
+559 entries compared: ok=1
+589 entries compared: ok=1
+Step 2000 of 10000
+630 entries compared: ok=1
+589 entries compared: ok=1
+630 entries compared: ok=1
+Step 2100 of 10000
+651 entries compared: ok=1
+630 entries compared: ok=1
+651 entries compared: ok=1
+Step 2200 of 10000
+682 entries compared: ok=1
+651 entries compared: ok=1
+682 entries compared: ok=1
+Step 2300 of 10000
+721 entries compared: ok=1
+682 entries compared: ok=1
+721 entries compared: ok=1
+Step 2400 of 10000
+760 entries compared: ok=1
+721 entries compared: ok=1
+760 entries compared: ok=1
+Step 2500 of 10000
+786 entries compared: ok=1
+760 entries compared: ok=1
+786 entries compared: ok=1
+Step 2600 of 10000
+822 entries compared: ok=1
+786 entries compared: ok=1
+822 entries compared: ok=1
+Step 2700 of 10000
+851 entries compared: ok=1
+822 entries compared: ok=1
+851 entries compared: ok=1
+Step 2800 of 10000
+888 entries compared: ok=1
+851 entries compared: ok=1
+888 entries compared: ok=1
+Step 2900 of 10000
+924 entries compared: ok=1
+888 entries compared: ok=1
+924 entries compared: ok=1
+Step 3000 of 10000
+953 entries compared: ok=1
+924 entries compared: ok=1
+953 entries compared: ok=1
+Step 3100 of 10000
+977 entries compared: ok=1
+953 entries compared: ok=1
+977 entries compared: ok=1
+Step 3200 of 10000
+1010 entries compared: ok=1
+977 entries compared: ok=1
+1010 entries compared: ok=1
+Step 3300 of 10000
+1033 entries compared: ok=1
+1010 entries compared: ok=1
+1033 entries compared: ok=1
+Step 3400 of 10000
+1068 entries compared: ok=1
+1033 entries compared: ok=1
+1068 entries compared: ok=1
+Step 3500 of 10000
+1102 entries compared: ok=1
+1068 entries compared: ok=1
+1102 entries compared: ok=1
+Step 3600 of 10000
+1128 entries compared: ok=1
+1102 entries compared: ok=1
+1128 entries compared: ok=1
+Step 3700 of 10000
+1153 entries compared: ok=1
+1128 entries compared: ok=1
+1153 entries compared: ok=1
+Step 3800 of 10000
+1183 entries compared: ok=1
+1153 entries compared: ok=1
+1183 entries compared: ok=1
+Step 3900 of 10000
+1210 entries compared: ok=1
+1183 entries compared: ok=1
+1210 entries compared: ok=1
+Step 4000 of 10000
+1228 entries compared: ok=1
+1210 entries compared: ok=1
+1228 entries compared: ok=1
+Step 4100 of 10000
+1247 entries compared: ok=1
+1228 entries compared: ok=1
+1247 entries compared: ok=1
+Step 4200 of 10000
+1277 entries compared: ok=1
+1247 entries compared: ok=1
+1277 entries compared: ok=1
+Step 4300 of 10000
+1295 entries compared: ok=1
+1277 entries compared: ok=1
+1295 entries compared: ok=1
+Step 4400 of 10000
+1316 entries compared: ok=1
+1295 entries compared: ok=1
+1316 entries compared: ok=1
+Step 4500 of 10000
+1351 entries compared: ok=1
+1316 entries compared: ok=1
+1351 entries compared: ok=1
+Step 4600 of 10000
+1380 entries compared: ok=1
+1351 entries compared: ok=1
+1380 entries compared: ok=1
+Step 4700 of 10000
+1405 entries compared: ok=1
+1380 entries compared: ok=1
+1405 entries compared: ok=1
+Step 4800 of 10000
+1437 entries compared: ok=1
+1405 entries compared: ok=1
+1437 entries compared: ok=1
+Step 4900 of 10000
+1461 entries compared: ok=1
+1437 entries compared: ok=1
+1461 entries compared: ok=1
+Step 5000 of 10000
+1505 entries compared: ok=1
+1461 entries compared: ok=1
+1505 entries compared: ok=1
+Step 5100 of 10000
+1532 entries compared: ok=1
+1505 entries compared: ok=1
+1532 entries compared: ok=1
+Step 5200 of 10000
+1573 entries compared: ok=1
+1532 entries compared: ok=1
+1573 entries compared: ok=1
+Step 5300 of 10000
+1591 entries compared: ok=1
+1573 entries compared: ok=1
+1591 entries compared: ok=1
+Step 5400 of 10000
+1618 entries compared: ok=1
+1591 entries compared: ok=1
+1618 entries compared: ok=1
+Step 5500 of 10000
+1639 entries compared: ok=1
+1618 entries compared: ok=1
+1639 entries compared: ok=1
+Step 5600 of 10000
+1664 entries compared: ok=1
+1639 entries compared: ok=1
+1664 entries compared: ok=1
+Step 5700 of 10000
+1675 entries compared: ok=1
+1664 entries compared: ok=1
+1675 entries compared: ok=1
+Step 5800 of 10000
+1705 entries compared: ok=1
+1675 entries compared: ok=1
+1705 entries compared: ok=1
+Step 5900 of 10000
+1728 entries compared: ok=1
+1705 entries compared: ok=1
+1728 entries compared: ok=1
+Step 6000 of 10000
+1751 entries compared: ok=1
+1728 entries compared: ok=1
+1751 entries compared: ok=1
+Step 6100 of 10000
+1776 entries compared: ok=1
+1751 entries compared: ok=1
+1776 entries compared: ok=1
+Step 6200 of 10000
+1800 entries compared: ok=1
+1776 entries compared: ok=1
+1800 entries compared: ok=1
+Step 6300 of 10000
+1829 entries compared: ok=1
+1800 entries compared: ok=1
+1829 entries compared: ok=1
+Step 6400 of 10000
+1845 entries compared: ok=1
+1829 entries compared: ok=1
+1845 entries compared: ok=1
+Step 6500 of 10000
+1875 entries compared: ok=1
+1845 entries compared: ok=1
+1875 entries compared: ok=1
+Step 6600 of 10000
+1899 entries compared: ok=1
+1875 entries compared: ok=1
+1899 entries compared: ok=1
+Step 6700 of 10000
+1930 entries compared: ok=1
+1899 entries compared: ok=1
+1930 entries compared: ok=1
+Step 6800 of 10000
+1948 entries compared: ok=1
+1930 entries compared: ok=1
+1948 entries compared: ok=1
+Step 6900 of 10000
+1983 entries compared: ok=1
+1948 entries compared: ok=1
+1983 entries compared: ok=1
+Step 7000 of 10000
+2005 entries compared: ok=1
+1983 entries compared: ok=1
+2005 entries compared: ok=1
+Step 7100 of 10000
+2031 entries compared: ok=1
+2005 entries compared: ok=1
+2031 entries compared: ok=1
+Step 7200 of 10000
+2060 entries compared: ok=1
+2031 entries compared: ok=1
+2060 entries compared: ok=1
+Step 7300 of 10000
+2085 entries compared: ok=1
+2060 entries compared: ok=1
+2085 entries compared: ok=1
+Step 7400 of 10000
+2117 entries compared: ok=1
+2085 entries compared: ok=1
+2117 entries compared: ok=1
+Step 7500 of 10000
+2145 entries compared: ok=1
+2117 entries compared: ok=1
+2145 entries compared: ok=1
+Step 7600 of 10000
+2168 entries compared: ok=1
+2145 entries compared: ok=1
+2168 entries compared: ok=1
+Step 7700 of 10000
+2194 entries compared: ok=1
+2168 entries compared: ok=1
+2194 entries compared: ok=1
+Step 7800 of 10000
+2219 entries compared: ok=1
+2194 entries compared: ok=1
+2219 entries compared: ok=1
+Step 7900 of 10000
+2257 entries compared: ok=1
+2219 entries compared: ok=1
+2257 entries compared: ok=1
+Step 8000 of 10000
+2275 entries compared: ok=1
+2257 entries compared: ok=1
+2275 entries compared: ok=1
+Step 8100 of 10000
+2309 entries compared: ok=1
+2275 entries compared: ok=1
+2309 entries compared: ok=1
+Step 8200 of 10000
+2336 entries compared: ok=1
+2309 entries compared: ok=1
+2336 entries compared: ok=1
+Step 8300 of 10000
+2360 entries compared: ok=1
+2336 entries compared: ok=1
+2360 entries compared: ok=1
+Step 8400 of 10000
+2389 entries compared: ok=1
+2360 entries compared: ok=1
+2389 entries compared: ok=1
+Step 8500 of 10000
+2412 entries compared: ok=1
+2389 entries compared: ok=1
+2412 entries compared: ok=1
+Step 8600 of 10000
+2432 entries compared: ok=1
+2412 entries compared: ok=1
+2432 entries compared: ok=1
+Step 8700 of 10000
+2456 entries compared: ok=1
+2432 entries compared: ok=1
+2456 entries compared: ok=1
+Step 8800 of 10000
+2496 entries compared: ok=1
+2456 entries compared: ok=1
+2496 entries compared: ok=1
+Step 8900 of 10000
+2524 entries compared: ok=1
+2496 entries compared: ok=1
+2524 entries compared: ok=1
+Step 9000 of 10000
+2550 entries compared: ok=1
+2524 entries compared: ok=1
+2550 entries compared: ok=1
+Step 9100 of 10000
+2571 entries compared: ok=1
+2550 entries compared: ok=1
+2571 entries compared: ok=1
+Step 9200 of 10000
+2604 entries compared: ok=1
+2571 entries compared: ok=1
+2604 entries compared: ok=1
+Step 9300 of 10000
+2647 entries compared: ok=1
+2604 entries compared: ok=1
+2647 entries compared: ok=1
+Step 9400 of 10000
+2669 entries compared: ok=1
+2647 entries compared: ok=1
+2669 entries compared: ok=1
+Step 9500 of 10000
+2687 entries compared: ok=1
+2669 entries compared: ok=1
+2687 entries compared: ok=1
+Step 9600 of 10000
+2711 entries compared: ok=1
+2687 entries compared: ok=1
+2711 entries compared: ok=1
+Step 9700 of 10000
+2738 entries compared: ok=1
+2711 entries compared: ok=1
+2738 entries compared: ok=1
+Step 9800 of 10000
+2758 entries compared: ok=1
+2738 entries compared: ok=1
+2758 entries compared: ok=1
+Step 9900 of 10000
+2783 entries compared: ok=1
+2758 entries compared: ok=1
+2783 entries compared: ok=1
+Step 0 of 10000
+0 entries compared: ok=1
+0 entries compared: ok=1
+0 entries compared: ok=1
+Step 100 of 10000
+38 entries compared: ok=1
+0 entries compared: ok=1
+38 entries compared: ok=1
+Step 200 of 10000
+76 entries compared: ok=1
+38 entries compared: ok=1
+76 entries compared: ok=1
+Step 300 of 10000
+109 entries compared: ok=1
+76 entries compared: ok=1
+109 entries compared: ok=1
+Step 400 of 10000
+130 entries compared: ok=1
+109 entries compared: ok=1
+130 entries compared: ok=1
+Step 500 of 10000
+165 entries compared: ok=1
+130 entries compared: ok=1
+165 entries compared: ok=1
+Step 600 of 10000
+191 entries compared: ok=1
+165 entries compared: ok=1
+191 entries compared: ok=1
+Step 700 of 10000
+226 entries compared: ok=1
+191 entries compared: ok=1
+226 entries compared: ok=1
+Step 800 of 10000
+262 entries compared: ok=1
+226 entries compared: ok=1
+262 entries compared: ok=1
+Step 900 of 10000
+287 entries compared: ok=1
+262 entries compared: ok=1
+287 entries compared: ok=1
+Step 1000 of 10000
+310 entries compared: ok=1
+287 entries compared: ok=1
+310 entries compared: ok=1
+Step 1100 of 10000
+334 entries compared: ok=1
+310 entries compared: ok=1
+334 entries compared: ok=1
+Step 1200 of 10000
+360 entries compared: ok=1
+334 entries compared: ok=1
+360 entries compared: ok=1
+Step 1300 of 10000
+409 entries compared: ok=1
+360 entries compared: ok=1
+409 entries compared: ok=1
+Step 1400 of 10000
+442 entries compared: ok=1
+409 entries compared: ok=1
+442 entries compared: ok=1
+Step 1500 of 10000
+467 entries compared: ok=1
+442 entries compared: ok=1
+467 entries compared: ok=1
+Step 1600 of 10000
+500 entries compared: ok=1
+467 entries compared: ok=1
+500 entries compared: ok=1
+Step 1700 of 10000
+528 entries compared: ok=1
+500 entries compared: ok=1
+528 entries compared: ok=1
+Step 1800 of 10000
+558 entries compared: ok=1
+528 entries compared: ok=1
+558 entries compared: ok=1
+Step 1900 of 10000
+588 entries compared: ok=1
+558 entries compared: ok=1
+588 entries compared: ok=1
+Step 2000 of 10000
+612 entries compared: ok=1
+588 entries compared: ok=1
+612 entries compared: ok=1
+Step 2100 of 10000
+641 entries compared: ok=1
+612 entries compared: ok=1
+641 entries compared: ok=1
+Step 2200 of 10000
+666 entries compared: ok=1
+641 entries compared: ok=1
+666 entries compared: ok=1
+Step 2300 of 10000
+693 entries compared: ok=1
+666 entries compared: ok=1
+693 entries compared: ok=1
+Step 2400 of 10000
+734 entries compared: ok=1
+693 entries compared: ok=1
+734 entries compared: ok=1
+Step 2500 of 10000
+767 entries compared: ok=1
+734 entries compared: ok=1
+767 entries compared: ok=1
+Step 2600 of 10000
+796 entries compared: ok=1
+767 entries compared: ok=1
+796 entries compared: ok=1
+Step 2700 of 10000
+819 entries compared: ok=1
+796 entries compared: ok=1
+819 entries compared: ok=1
+Step 2800 of 10000
+849 entries compared: ok=1
+819 entries compared: ok=1
+849 entries compared: ok=1
+Step 2900 of 10000
+892 entries compared: ok=1
+849 entries compared: ok=1
+892 entries compared: ok=1
+Step 3000 of 10000
+920 entries compared: ok=1
+892 entries compared: ok=1
+920 entries compared: ok=1
+Step 3100 of 10000
+944 entries compared: ok=1
+920 entries compared: ok=1
+944 entries compared: ok=1
+Step 3200 of 10000
+972 entries compared: ok=1
+944 entries compared: ok=1
+972 entries compared: ok=1
+Step 3300 of 10000
+999 entries compared: ok=1
+972 entries compared: ok=1
+999 entries compared: ok=1
+Step 3400 of 10000
+1031 entries compared: ok=1
+999 entries compared: ok=1
+1031 entries compared: ok=1
+Step 3500 of 10000
+1055 entries compared: ok=1
+1031 entries compared: ok=1
+1055 entries compared: ok=1
+Step 3600 of 10000
+1083 entries compared: ok=1
+1055 entries compared: ok=1
+1083 entries compared: ok=1
+Step 3700 of 10000
+1121 entries compared: ok=1
+1083 entries compared: ok=1
+1121 entries compared: ok=1
+Step 3800 of 10000
+1161 entries compared: ok=1
+1121 entries compared: ok=1
+1161 entries compared: ok=1
+Step 3900 of 10000
+1180 entries compared: ok=1
+1161 entries compared: ok=1
+1180 entries compared: ok=1
+Step 4000 of 10000
+1211 entries compared: ok=1
+1180 entries compared: ok=1
+1211 entries compared: ok=1
+Step 4100 of 10000
+1230 entries compared: ok=1
+1211 entries compared: ok=1
+1230 entries compared: ok=1
+Step 4200 of 10000
+1258 entries compared: ok=1
+1230 entries compared: ok=1
+1258 entries compared: ok=1
+Step 4300 of 10000
+1290 entries compared: ok=1
+1258 entries compared: ok=1
+1290 entries compared: ok=1
+Step 4400 of 10000
+1327 entries compared: ok=1
+1290 entries compared: ok=1
+1327 entries compared: ok=1
+Step 4500 of 10000
+1355 entries compared: ok=1
+1327 entries compared: ok=1
+1355 entries compared: ok=1
+Step 4600 of 10000
+1371 entries compared: ok=1
+1355 entries compared: ok=1
+1371 entries compared: ok=1
+Step 4700 of 10000
+1402 entries compared: ok=1
+1371 entries compared: ok=1
+1402 entries compared: ok=1
+Step 4800 of 10000
+1431 entries compared: ok=1
+1402 entries compared: ok=1
+1431 entries compared: ok=1
+Step 4900 of 10000
+1454 entries compared: ok=1
+1431 entries compared: ok=1
+1454 entries compared: ok=1
+Step 5000 of 10000
+1476 entries compared: ok=1
+1454 entries compared: ok=1
+1476 entries compared: ok=1
+Step 5100 of 10000
+1514 entries compared: ok=1
+1476 entries compared: ok=1
+1514 entries compared: ok=1
+Step 5200 of 10000
+1541 entries compared: ok=1
+1514 entries compared: ok=1
+1541 entries compared: ok=1
+Step 5300 of 10000
+1571 entries compared: ok=1
+1541 entries compared: ok=1
+1571 entries compared: ok=1
+Step 5400 of 10000
+1595 entries compared: ok=1
+1571 entries compared: ok=1
+1595 entries compared: ok=1
+Step 5500 of 10000
+1629 entries compared: ok=1
+1595 entries compared: ok=1
+1629 entries compared: ok=1
+Step 5600 of 10000
+1654 entries compared: ok=1
+1629 entries compared: ok=1
+1654 entries compared: ok=1
+Step 5700 of 10000
+1678 entries compared: ok=1
+1654 entries compared: ok=1
+1678 entries compared: ok=1
+Step 5800 of 10000
+1702 entries compared: ok=1
+1678 entries compared: ok=1
+1702 entries compared: ok=1
+Step 5900 of 10000
+1726 entries compared: ok=1
+1702 entries compared: ok=1
+1726 entries compared: ok=1
+Step 6000 of 10000
+1747 entries compared: ok=1
+1726 entries compared: ok=1
+1747 entries compared: ok=1
+Step 6100 of 10000
+1772 entries compared: ok=1
+1747 entries compared: ok=1
+1772 entries compared: ok=1
+Step 6200 of 10000
+1811 entries compared: ok=1
+1772 entries compared: ok=1
+1811 entries compared: ok=1
+Step 6300 of 10000
+1831 entries compared: ok=1
+1811 entries compared: ok=1
+1831 entries compared: ok=1
+Step 6400 of 10000
+1858 entries compared: ok=1
+1831 entries compared: ok=1
+1858 entries compared: ok=1
+Step 6500 of 10000
+1880 entries compared: ok=1
+1858 entries compared: ok=1
+1880 entries compared: ok=1
+Step 6600 of 10000
+1899 entries compared: ok=1
+1880 entries compared: ok=1
+1899 entries compared: ok=1
+Step 6700 of 10000
+1924 entries compared: ok=1
+1899 entries compared: ok=1
+1924 entries compared: ok=1
+Step 6800 of 10000
+1949 entries compared: ok=1
+1924 entries compared: ok=1
+1949 entries compared: ok=1
+Step 6900 of 10000
+1969 entries compared: ok=1
+1949 entries compared: ok=1
+1969 entries compared: ok=1
+Step 7000 of 10000
+1996 entries compared: ok=1
+1969 entries compared: ok=1
+1996 entries compared: ok=1
+Step 7100 of 10000
+2030 entries compared: ok=1
+1996 entries compared: ok=1
+2030 entries compared: ok=1
+Step 7200 of 10000
+2046 entries compared: ok=1
+2030 entries compared: ok=1
+2046 entries compared: ok=1
+Step 7300 of 10000
+2074 entries compared: ok=1
+2046 entries compared: ok=1
+2074 entries compared: ok=1
+Step 7400 of 10000
+2100 entries compared: ok=1
+2074 entries compared: ok=1
+2100 entries compared: ok=1
+Step 7500 of 10000
+2113 entries compared: ok=1
+2100 entries compared: ok=1
+2113 entries compared: ok=1
+Step 7600 of 10000
+2149 entries compared: ok=1
+2113 entries compared: ok=1
+2149 entries compared: ok=1
+Step 7700 of 10000
+2176 entries compared: ok=1
+2149 entries compared: ok=1
+2176 entries compared: ok=1
+Step 7800 of 10000
+2204 entries compared: ok=1
+2176 entries compared: ok=1
+2204 entries compared: ok=1
+Step 7900 of 10000
+2237 entries compared: ok=1
+2204 entries compared: ok=1
+2237 entries compared: ok=1
+Step 8000 of 10000
+2266 entries compared: ok=1
+2237 entries compared: ok=1
+2266 entries compared: ok=1
+Step 8100 of 10000
+2294 entries compared: ok=1
+2266 entries compared: ok=1
+2294 entries compared: ok=1
+Step 8200 of 10000
+2318 entries compared: ok=1
+2294 entries compared: ok=1
+2318 entries compared: ok=1
+Step 8300 of 10000
+2343 entries compared: ok=1
+2318 entries compared: ok=1
+2343 entries compared: ok=1
+Step 8400 of 10000
+2365 entries compared: ok=1
+2343 entries compared: ok=1
+2365 entries compared: ok=1
+Step 8500 of 10000
+2389 entries compared: ok=1
+2365 entries compared: ok=1
+2389 entries compared: ok=1
+Step 8600 of 10000
+2412 entries compared: ok=1
+2389 entries compared: ok=1
+2412 entries compared: ok=1
+Step 8700 of 10000
+2437 entries compared: ok=1
+2412 entries compared: ok=1
+2437 entries compared: ok=1
+Step 8800 of 10000
+2462 entries compared: ok=1
+2437 entries compared: ok=1
+2462 entries compared: ok=1
+Step 8900 of 10000
+2489 entries compared: ok=1
+2462 entries compared: ok=1
+2489 entries compared: ok=1
+Step 9000 of 10000
+2522 entries compared: ok=1
+2489 entries compared: ok=1
+2522 entries compared: ok=1
+Step 9100 of 10000
+2558 entries compared: ok=1
+2522 entries compared: ok=1
+2558 entries compared: ok=1
+Step 9200 of 10000
+2577 entries compared: ok=1
+2558 entries compared: ok=1
+2577 entries compared: ok=1
+Step 9300 of 10000
+2603 entries compared: ok=1
+2577 entries compared: ok=1
+2603 entries compared: ok=1
+Step 9400 of 10000
+2635 entries compared: ok=1
+2603 entries compared: ok=1
+2635 entries compared: ok=1
+Step 9500 of 10000
+2656 entries compared: ok=1
+2635 entries compared: ok=1
+2656 entries compared: ok=1
+Step 9600 of 10000
+2682 entries compared: ok=1
+2656 entries compared: ok=1
+2682 entries compared: ok=1
+Step 9700 of 10000
+2711 entries compared: ok=1
+2682 entries compared: ok=1
+2711 entries compared: ok=1
+Step 9800 of 10000
+2737 entries compared: ok=1
+2711 entries compared: ok=1
+2737 entries compared: ok=1
+Step 9900 of 10000
+2750 entries compared: ok=1
+2737 entries compared: ok=1
+2750 entries compared: ok=1
+==== PASSED 49 tests
+==20319== 
+==20319== HEAP SUMMARY:
+==20319==     in use at exit: 7,368 bytes in 23 blocks
+==20319==   total heap usage: 4,752,245 allocs, 4,752,222 frees, 2,534,567,983 bytes allocated
+==20319== 
+==20319== LEAK SUMMARY:
+==20319==    definitely lost: 0 bytes in 0 blocks
+==20319==    indirectly lost: 0 bytes in 0 blocks
+==20319==      possibly lost: 4,896 bytes in 17 blocks
+==20319==    still reachable: 2,472 bytes in 6 blocks
+==20319==         suppressed: 0 bytes in 0 blocks
+==20319== Rerun with --leak-check=full to see details of leaked memory
+==20319== 
+==20319== For counts of detected and suppressed errors, rerun with: -v
+==20319== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running dbformat_test
+==20476== Memcheck, a memory error detector
+==20476== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20476== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20476== Command: out-static/dbformat_test
+==20476== 
+==== Test FormatTest.InternalKey_EncodeDecode
+==== Test FormatTest.InternalKeyShortSeparator
+==== Test FormatTest.InternalKeyShortestSuccessor
+==== PASSED 3 tests
+==20476== 
+==20476== HEAP SUMMARY:
+==20476==     in use at exit: 128 bytes in 3 blocks
+==20476==   total heap usage: 449 allocs, 446 frees, 15,261 bytes allocated
+==20476== 
+==20476== LEAK SUMMARY:
+==20476==    definitely lost: 0 bytes in 0 blocks
+==20476==    indirectly lost: 0 bytes in 0 blocks
+==20476==      possibly lost: 0 bytes in 0 blocks
+==20476==    still reachable: 128 bytes in 3 blocks
+==20476==         suppressed: 0 bytes in 0 blocks
+==20476== Rerun with --leak-check=full to see details of leaked memory
+==20476== 
+==20476== For counts of detected and suppressed errors, rerun with: -v
+==20476== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running fault_injection_test
+==20477== Memcheck, a memory error detector
+==20477== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20477== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20477== Command: out-static/fault_injection_test
+==20477== 
+==== Test FaultInjectionTest.FaultTestNoLogReuse
+==== Test FaultInjectionTest.FaultTestWithLogReuse
+==== PASSED 2 tests
+==20477== 
+==20477== HEAP SUMMARY:
+==20477==     in use at exit: 1,272 bytes in 7 blocks
+==20477==   total heap usage: 272,588 allocs, 272,581 frees, 344,097,335 bytes allocated
+==20477== 
+==20477== LEAK SUMMARY:
+==20477==    definitely lost: 0 bytes in 0 blocks
+==20477==    indirectly lost: 0 bytes in 0 blocks
+==20477==      possibly lost: 288 bytes in 1 blocks
+==20477==    still reachable: 984 bytes in 6 blocks
+==20477==         suppressed: 0 bytes in 0 blocks
+==20477== Rerun with --leak-check=full to see details of leaked memory
+==20477== 
+==20477== For counts of detected and suppressed errors, rerun with: -v
+==20477== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running filename_test
+==20482== Memcheck, a memory error detector
+==20482== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20482== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20482== Command: out-static/filename_test
+==20482== 
+==== Test FileNameTest.Parse
+==== Test FileNameTest.Construction
+==== PASSED 2 tests
+==20482== 
+==20482== HEAP SUMMARY:
+==20482==     in use at exit: 72 bytes in 2 blocks
+==20482==   total heap usage: 58 allocs, 56 frees, 1,906 bytes allocated
+==20482== 
+==20482== LEAK SUMMARY:
+==20482==    definitely lost: 0 bytes in 0 blocks
+==20482==    indirectly lost: 0 bytes in 0 blocks
+==20482==      possibly lost: 0 bytes in 0 blocks
+==20482==    still reachable: 72 bytes in 2 blocks
+==20482==         suppressed: 0 bytes in 0 blocks
+==20482== Rerun with --leak-check=full to see details of leaked memory
+==20482== 
+==20482== For counts of detected and suppressed errors, rerun with: -v
+==20482== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running log_test
+==20483== Memcheck, a memory error detector
+==20483== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20483== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20483== Command: out-static/log_test
+==20483== 
+==== Test LogTest.Empty
+==== Test LogTest.ReadWrite
+==== Test LogTest.ManyBlocks
+==== Test LogTest.Fragmentation
+==== Test LogTest.MarginalTrailer
+==== Test LogTest.MarginalTrailer2
+==== Test LogTest.ShortTrailer
+==== Test LogTest.AlignedEof
+==== Test LogTest.OpenForAppend
+==== Test LogTest.RandomRead
+==== Test LogTest.ReadError
+==== Test LogTest.BadRecordType
+==== Test LogTest.TruncatedTrailingRecordIsIgnored
+==== Test LogTest.BadLength
+==== Test LogTest.BadLengthAtEndIsIgnored
+==== Test LogTest.ChecksumMismatch
+==== Test LogTest.UnexpectedMiddleType
+==== Test LogTest.UnexpectedLastType
+==== Test LogTest.UnexpectedFullType
+==== Test LogTest.UnexpectedFirstType
+==== Test LogTest.MissingLastIsIgnored
+==== Test LogTest.PartialLastIsIgnored
+==== Test LogTest.SkipIntoMultiRecord
+==== Test LogTest.ErrorJoinsRecords
+==== Test LogTest.ReadStart
+==== Test LogTest.ReadSecondOneOff
+==== Test LogTest.ReadSecondTenThousand
+==== Test LogTest.ReadSecondStart
+==== Test LogTest.ReadThirdOneOff
+==== Test LogTest.ReadThirdStart
+==== Test LogTest.ReadFourthOneOff
+==== Test LogTest.ReadFourthFirstBlockTrailer
+==== Test LogTest.ReadFourthMiddleBlock
+==== Test LogTest.ReadFourthLastBlock
+==== Test LogTest.ReadFourthStart
+==== Test LogTest.ReadEnd
+==== Test LogTest.ReadPastEnd
+==== PASSED 37 tests
+==20483== 
+==20483== HEAP SUMMARY:
+==20483==     in use at exit: 1,560 bytes in 2 blocks
+==20483==   total heap usage: 309,242 allocs, 309,240 frees, 62,432,577 bytes allocated
+==20483== 
+==20483== LEAK SUMMARY:
+==20483==    definitely lost: 0 bytes in 0 blocks
+==20483==    indirectly lost: 0 bytes in 0 blocks
+==20483==      possibly lost: 0 bytes in 0 blocks
+==20483==    still reachable: 1,560 bytes in 2 blocks
+==20483==         suppressed: 0 bytes in 0 blocks
+==20483== Rerun with --leak-check=full to see details of leaked memory
+==20483== 
+==20483== For counts of detected and suppressed errors, rerun with: -v
+==20483== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running recovery_test
+==20509== Memcheck, a memory error detector
+==20509== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20509== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20509== Command: out-static/recovery_test
+==20509== 
+==== Test RecoveryTest.ManifestReused
+==== Test RecoveryTest.LargeManifestCompacted
+==== Test RecoveryTest.NoLogFiles
+==== Test RecoveryTest.LogFileReuse
+==== Test RecoveryTest.MultipleMemTables
+==== Test RecoveryTest.MultipleLogFiles
+==== PASSED 6 tests
+==20509== 
+==20509== HEAP SUMMARY:
+==20509==     in use at exit: 1,416 bytes in 7 blocks
+==20509==   total heap usage: 17,614 allocs, 17,607 frees, 10,350,846 bytes allocated
+==20509== 
+==20509== LEAK SUMMARY:
+==20509==    definitely lost: 0 bytes in 0 blocks
+==20509==    indirectly lost: 0 bytes in 0 blocks
+==20509==      possibly lost: 288 bytes in 1 blocks
+==20509==    still reachable: 1,128 bytes in 6 blocks
+==20509==         suppressed: 0 bytes in 0 blocks
+==20509== Rerun with --leak-check=full to see details of leaked memory
+==20509== 
+==20509== For counts of detected and suppressed errors, rerun with: -v
+==20509== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running skiplist_test
+==20514== Memcheck, a memory error detector
+==20514== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20514== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==20514== Command: out-static/skiplist_test
+==20514== 
+==== Test SkipTest.Empty
+==== Test SkipTest.InsertAndLookup
+==== Test SkipTest.ConcurrentWithoutThreads
+==== Test SkipTest.Concurrent1
+Run 0 of 1000
+Run 100 of 1000
+Run 200 of 1000
+Run 300 of 1000
+Run 400 of 1000
+Run 500 of 1000
+Run 600 of 1000
+Run 700 of 1000
+Run 800 of 1000
+Run 900 of 1000
+==== Test SkipTest.Concurrent2
+Run 0 of 1000
+Run 100 of 1000
+Run 200 of 1000
+Run 300 of 1000
+Run 400 of 1000
+Run 500 of 1000
+Run 600 of 1000
+Run 700 of 1000
+Run 800 of 1000
+Run 900 of 1000
+==== Test SkipTest.Concurrent3
+Run 0 of 1000
+Run 100 of 1000
+Run 200 of 1000
+Run 300 of 1000
+Run 400 of 1000
+Run 500 of 1000
+Run 600 of 1000
+Run 700 of 1000
+Run 800 of 1000
+Run 900 of 1000
+==== Test SkipTest.Concurrent4
+Run 0 of 1000
+Run 100 of 1000
+Run 200 of 1000
+Run 300 of 1000
+Run 400 of 1000
+Run 500 of 1000
+Run 600 of 1000
+Run 700 of 1000
+Run 800 of 1000
+Run 900 of 1000
+==== Test SkipTest.Concurrent5
+Run 0 of 1000
+Run 100 of 1000
+Run 200 of 1000
+Run 300 of 1000
+Run 400 of 1000
+Run 500 of 1000
+Run 600 of 1000
+Run 700 of 1000
+Run 800 of 1000
+Run 900 of 1000
+==== PASSED 8 tests
+==20514== 
+==20514== HEAP SUMMARY:
+==20514==     in use at exit: 1,408 bytes in 6 blocks
+==20514==   total heap usage: 46,881 allocs, 46,875 frees, 103,373,832 bytes allocated
+==20514== 
+==20514== LEAK SUMMARY:
+==20514==    definitely lost: 0 bytes in 0 blocks
+==20514==    indirectly lost: 0 bytes in 0 blocks
+==20514==      possibly lost: 288 bytes in 1 blocks
+==20514==    still reachable: 1,120 bytes in 5 blocks
+==20514==         suppressed: 0 bytes in 0 blocks
+==20514== Rerun with --leak-check=full to see details of leaked memory
+==20514== 
+==20514== For counts of detected and suppressed errors, rerun with: -v
+==20514== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running version_edit_test
+==10567== Memcheck, a memory error detector
+==10567== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==10567== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==10567== Command: out-static/version_edit_test
+==10567== 
+==== Test VersionEditTest.EncodeDecode
+==== PASSED 1 tests
+==10567== 
+==10567== HEAP SUMMARY:
+==10567==     in use at exit: 48 bytes in 2 blocks
+==10567==   total heap usage: 165 allocs, 163 frees, 9,089 bytes allocated
+==10567== 
+==10567== LEAK SUMMARY:
+==10567==    definitely lost: 0 bytes in 0 blocks
+==10567==    indirectly lost: 0 bytes in 0 blocks
+==10567==      possibly lost: 0 bytes in 0 blocks
+==10567==    still reachable: 48 bytes in 2 blocks
+==10567==         suppressed: 0 bytes in 0 blocks
+==10567== Rerun with --leak-check=full to see details of leaked memory
+==10567== 
+==10567== For counts of detected and suppressed errors, rerun with: -v
+==10567== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running version_set_test
+==10574== Memcheck, a memory error detector
+==10574== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==10574== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==10574== Command: out-static/version_set_test
+==10574== 
+==== Test FindFileTest.Empty
+==== Test FindFileTest.Single
+==== Test FindFileTest.Multiple
+==== Test FindFileTest.MultipleNullBoundaries
+==== Test FindFileTest.OverlapSequenceChecks
+==== Test FindFileTest.OverlappingFiles
+==== PASSED 6 tests
+==10574== 
+==10574== HEAP SUMMARY:
+==10574==     in use at exit: 224 bytes in 3 blocks
+==10574==   total heap usage: 200 allocs, 197 frees, 6,442 bytes allocated
+==10574== 
+==10574== LEAK SUMMARY:
+==10574==    definitely lost: 0 bytes in 0 blocks
+==10574==    indirectly lost: 0 bytes in 0 blocks
+==10574==      possibly lost: 0 bytes in 0 blocks
+==10574==    still reachable: 224 bytes in 3 blocks
+==10574==         suppressed: 0 bytes in 0 blocks
+==10574== Rerun with --leak-check=full to see details of leaked memory
+==10574== 
+==10574== For counts of detected and suppressed errors, rerun with: -v
+==10574== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running write_batch_test
+==10575== Memcheck, a memory error detector
+==10575== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==10575== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==10575== Command: out-static/write_batch_test
+==10575== 
+==== Test WriteBatchTest.Empty
+==== Test WriteBatchTest.Multiple
+==== Test WriteBatchTest.Corruption
+==== Test WriteBatchTest.Append
+==== PASSED 4 tests
+==10575== 
+==10575== HEAP SUMMARY:
+==10575==     in use at exit: 128 bytes in 3 blocks
+==10575==   total heap usage: 98 allocs, 95 frees, 32,613 bytes allocated
+==10575== 
+==10575== LEAK SUMMARY:
+==10575==    definitely lost: 0 bytes in 0 blocks
+==10575==    indirectly lost: 0 bytes in 0 blocks
+==10575==      possibly lost: 0 bytes in 0 blocks
+==10575==    still reachable: 128 bytes in 3 blocks
+==10575==         suppressed: 0 bytes in 0 blocks
+==10575== Rerun with --leak-check=full to see details of leaked memory
+==10575== 
+==10575== For counts of detected and suppressed errors, rerun with: -v
+==10575== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running memenv_test
+==10576== Memcheck, a memory error detector
+==10576== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==10576== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==10576== Command: out-static/memenv_test
+==10576== 
+==== Test MemEnvTest.Basics
+==== Test MemEnvTest.ReadWrite
+==== Test MemEnvTest.Locks
+==== Test MemEnvTest.Misc
+==== Test MemEnvTest.LargeWrite
+==== Test MemEnvTest.DBTest
+==== PASSED 6 tests
+==10576== 
+==10576== HEAP SUMMARY:
+==10576==     in use at exit: 1,416 bytes in 7 blocks
+==10576==   total heap usage: 437 allocs, 430 frees, 2,420,361 bytes allocated
+==10576== 
+==10576== LEAK SUMMARY:
+==10576==    definitely lost: 0 bytes in 0 blocks
+==10576==    indirectly lost: 0 bytes in 0 blocks
+==10576==      possibly lost: 288 bytes in 1 blocks
+==10576==    still reachable: 1,128 bytes in 6 blocks
+==10576==         suppressed: 0 bytes in 0 blocks
+==10576== Rerun with --leak-check=full to see details of leaked memory
+==10576== 
+==10576== For counts of detected and suppressed errors, rerun with: -v
+==10576== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running issue178_test
+==10578== Memcheck, a memory error detector
+==10578== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==10578== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==10578== Command: out-static/issue178_test
+==10578== 
+==== Test Issue178.Test
+==== PASSED 1 tests
+==10578== 
+==10578== HEAP SUMMARY:
+==10578==     in use at exit: 1,248 bytes in 7 blocks
+==10578==   total heap usage: 5,833,150 allocs, 5,833,143 frees, 756,798,097 bytes allocated
+==10578== 
+==10578== LEAK SUMMARY:
+==10578==    definitely lost: 0 bytes in 0 blocks
+==10578==    indirectly lost: 0 bytes in 0 blocks
+==10578==      possibly lost: 288 bytes in 1 blocks
+==10578==    still reachable: 960 bytes in 6 blocks
+==10578==         suppressed: 0 bytes in 0 blocks
+==10578== Rerun with --leak-check=full to see details of leaked memory
+==10578== 
+==10578== For counts of detected and suppressed errors, rerun with: -v
+==10578== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running issue200_test
+==2587== Memcheck, a memory error detector
+==2587== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==2587== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==2587== Command: out-static/issue200_test
+==2587== 
+==== Test Issue200.Test
+==== PASSED 1 tests
+==2587== 
+==2587== HEAP SUMMARY:
+==2587==     in use at exit: 960 bytes in 6 blocks
+==2587==   total heap usage: 215 allocs, 209 frees, 166,972 bytes allocated
+==2587== 
+==2587== LEAK SUMMARY:
+==2587==    definitely lost: 0 bytes in 0 blocks
+==2587==    indirectly lost: 0 bytes in 0 blocks
+==2587==      possibly lost: 0 bytes in 0 blocks
+==2587==    still reachable: 960 bytes in 6 blocks
+==2587==         suppressed: 0 bytes in 0 blocks
+==2587== Rerun with --leak-check=full to see details of leaked memory
+==2587== 
+==2587== For counts of detected and suppressed errors, rerun with: -v
+==2587== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running filter_block_test
+==5517== Memcheck, a memory error detector
+==5517== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==5517== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==5517== Command: out-static/filter_block_test
+==5517== 
+==== Test FilterBlockTest.EmptyBuilder
+==== Test FilterBlockTest.SingleChunk
+==== Test FilterBlockTest.MultiChunk
+==== PASSED 3 tests
+==5517== 
+==5517== HEAP SUMMARY:
+==5517==     in use at exit: 120 bytes in 2 blocks
+==5517==   total heap usage: 40 allocs, 38 frees, 1,416 bytes allocated
+==5517== 
+==5517== LEAK SUMMARY:
+==5517==    definitely lost: 0 bytes in 0 blocks
+==5517==    indirectly lost: 0 bytes in 0 blocks
+==5517==      possibly lost: 0 bytes in 0 blocks
+==5517==    still reachable: 120 bytes in 2 blocks
+==5517==         suppressed: 0 bytes in 0 blocks
+==5517== Rerun with --leak-check=full to see details of leaked memory
+==5517== 
+==5517== For counts of detected and suppressed errors, rerun with: -v
+==5517== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running table_test
+==7191== Memcheck, a memory error detector
+==7191== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==7191== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==7191== Command: out-static/table_test
+==7191== 
+==== Test Harness.Empty
+==== Test Harness.ZeroRestartPointsInBlock
+==== Test Harness.SimpleEmptyKey
+==== Test Harness.SimpleSingle
+==== Test Harness.SimpleMulti
+==== Test Harness.SimpleSpecialKey
+==== Test Harness.Randomized
+case 1 of 16: num_entries = 0
+case 1 of 16: num_entries = 10
+case 1 of 16: num_entries = 20
+case 1 of 16: num_entries = 30
+case 1 of 16: num_entries = 40
+case 1 of 16: num_entries = 50
+case 1 of 16: num_entries = 250
+case 1 of 16: num_entries = 450
+case 1 of 16: num_entries = 650
+case 1 of 16: num_entries = 850
+case 1 of 16: num_entries = 1050
+case 1 of 16: num_entries = 1250
+case 1 of 16: num_entries = 1450
+case 1 of 16: num_entries = 1650
+case 1 of 16: num_entries = 1850
+case 2 of 16: num_entries = 0
+case 2 of 16: num_entries = 10
+case 2 of 16: num_entries = 20
+case 2 of 16: num_entries = 30
+case 2 of 16: num_entries = 40
+case 2 of 16: num_entries = 50
+case 2 of 16: num_entries = 250
+case 2 of 16: num_entries = 450
+case 2 of 16: num_entries = 650
+case 2 of 16: num_entries = 850
+case 2 of 16: num_entries = 1050
+case 2 of 16: num_entries = 1250
+case 2 of 16: num_entries = 1450
+case 2 of 16: num_entries = 1650
+case 2 of 16: num_entries = 1850
+case 3 of 16: num_entries = 0
+case 3 of 16: num_entries = 10
+case 3 of 16: num_entries = 20
+case 3 of 16: num_entries = 30
+case 3 of 16: num_entries = 40
+case 3 of 16: num_entries = 50
+case 3 of 16: num_entries = 250
+case 3 of 16: num_entries = 450
+case 3 of 16: num_entries = 650
+case 3 of 16: num_entries = 850
+case 3 of 16: num_entries = 1050
+case 3 of 16: num_entries = 1250
+case 3 of 16: num_entries = 1450
+case 3 of 16: num_entries = 1650
+case 3 of 16: num_entries = 1850
+case 4 of 16: num_entries = 0
+case 4 of 16: num_entries = 10
+case 4 of 16: num_entries = 20
+case 4 of 16: num_entries = 30
+case 4 of 16: num_entries = 40
+case 4 of 16: num_entries = 50
+case 4 of 16: num_entries = 250
+case 4 of 16: num_entries = 450
+case 4 of 16: num_entries = 650
+case 4 of 16: num_entries = 850
+case 4 of 16: num_entries = 1050
+case 4 of 16: num_entries = 1250
+case 4 of 16: num_entries = 1450
+case 4 of 16: num_entries = 1650
+case 4 of 16: num_entries = 1850
+case 5 of 16: num_entries = 0
+case 5 of 16: num_entries = 10
+case 5 of 16: num_entries = 20
+case 5 of 16: num_entries = 30
+case 5 of 16: num_entries = 40
+case 5 of 16: num_entries = 50
+case 5 of 16: num_entries = 250
+case 5 of 16: num_entries = 450
+case 5 of 16: num_entries = 650
+case 5 of 16: num_entries = 850
+case 5 of 16: num_entries = 1050
+case 5 of 16: num_entries = 1250
+case 5 of 16: num_entries = 1450
+case 5 of 16: num_entries = 1650
+case 5 of 16: num_entries = 1850
+case 6 of 16: num_entries = 0
+case 6 of 16: num_entries = 10
+case 6 of 16: num_entries = 20
+case 6 of 16: num_entries = 30
+case 6 of 16: num_entries = 40
+case 6 of 16: num_entries = 50
+case 6 of 16: num_entries = 250
+case 6 of 16: num_entries = 450
+case 6 of 16: num_entries = 650
+case 6 of 16: num_entries = 850
+case 6 of 16: num_entries = 1050
+case 6 of 16: num_entries = 1250
+case 6 of 16: num_entries = 1450
+case 6 of 16: num_entries = 1650
+case 6 of 16: num_entries = 1850
+case 7 of 16: num_entries = 0
+case 7 of 16: num_entries = 10
+case 7 of 16: num_entries = 20
+case 7 of 16: num_entries = 30
+case 7 of 16: num_entries = 40
+case 7 of 16: num_entries = 50
+case 7 of 16: num_entries = 250
+case 7 of 16: num_entries = 450
+case 7 of 16: num_entries = 650
+case 7 of 16: num_entries = 850
+case 7 of 16: num_entries = 1050
+case 7 of 16: num_entries = 1250
+case 7 of 16: num_entries = 1450
+case 7 of 16: num_entries = 1650
+case 7 of 16: num_entries = 1850
+case 8 of 16: num_entries = 0
+case 8 of 16: num_entries = 10
+case 8 of 16: num_entries = 20
+case 8 of 16: num_entries = 30
+case 8 of 16: num_entries = 40
+case 8 of 16: num_entries = 50
+case 8 of 16: num_entries = 250
+case 8 of 16: num_entries = 450
+case 8 of 16: num_entries = 650
+case 8 of 16: num_entries = 850
+case 8 of 16: num_entries = 1050
+case 8 of 16: num_entries = 1250
+case 8 of 16: num_entries = 1450
+case 8 of 16: num_entries = 1650
+case 8 of 16: num_entries = 1850
+case 9 of 16: num_entries = 0
+case 9 of 16: num_entries = 10
+case 9 of 16: num_entries = 20
+case 9 of 16: num_entries = 30
+case 9 of 16: num_entries = 40
+case 9 of 16: num_entries = 50
+case 9 of 16: num_entries = 250
+case 9 of 16: num_entries = 450
+case 9 of 16: num_entries = 650
+case 9 of 16: num_entries = 850
+case 9 of 16: num_entries = 1050
+case 9 of 16: num_entries = 1250
+case 9 of 16: num_entries = 1450
+case 9 of 16: num_entries = 1650
+case 9 of 16: num_entries = 1850
+case 10 of 16: num_entries = 0
+case 10 of 16: num_entries = 10
+case 10 of 16: num_entries = 20
+case 10 of 16: num_entries = 30
+case 10 of 16: num_entries = 40
+case 10 of 16: num_entries = 50
+case 10 of 16: num_entries = 250
+case 10 of 16: num_entries = 450
+case 10 of 16: num_entries = 650
+case 10 of 16: num_entries = 850
+case 10 of 16: num_entries = 1050
+case 10 of 16: num_entries = 1250
+case 10 of 16: num_entries = 1450
+case 10 of 16: num_entries = 1650
+case 10 of 16: num_entries = 1850
+case 11 of 16: num_entries = 0
+case 11 of 16: num_entries = 10
+case 11 of 16: num_entries = 20
+case 11 of 16: num_entries = 30
+case 11 of 16: num_entries = 40
+case 11 of 16: num_entries = 50
+case 11 of 16: num_entries = 250
+case 11 of 16: num_entries = 450
+case 11 of 16: num_entries = 650
+case 11 of 16: num_entries = 850
+case 11 of 16: num_entries = 1050
+case 11 of 16: num_entries = 1250
+case 11 of 16: num_entries = 1450
+case 11 of 16: num_entries = 1650
+case 11 of 16: num_entries = 1850
+case 12 of 16: num_entries = 0
+case 12 of 16: num_entries = 10
+case 12 of 16: num_entries = 20
+case 12 of 16: num_entries = 30
+case 12 of 16: num_entries = 40
+case 12 of 16: num_entries = 50
+case 12 of 16: num_entries = 250
+case 12 of 16: num_entries = 450
+case 12 of 16: num_entries = 650
+case 12 of 16: num_entries = 850
+case 12 of 16: num_entries = 1050
+case 12 of 16: num_entries = 1250
+case 12 of 16: num_entries = 1450
+case 12 of 16: num_entries = 1650
+case 12 of 16: num_entries = 1850
+case 13 of 16: num_entries = 0
+case 13 of 16: num_entries = 10
+case 13 of 16: num_entries = 20
+case 13 of 16: num_entries = 30
+case 13 of 16: num_entries = 40
+case 13 of 16: num_entries = 50
+case 13 of 16: num_entries = 250
+case 13 of 16: num_entries = 450
+case 13 of 16: num_entries = 650
+case 13 of 16: num_entries = 850
+case 13 of 16: num_entries = 1050
+case 13 of 16: num_entries = 1250
+case 13 of 16: num_entries = 1450
+case 13 of 16: num_entries = 1650
+case 13 of 16: num_entries = 1850
+case 14 of 16: num_entries = 0
+case 14 of 16: num_entries = 10
+case 14 of 16: num_entries = 20
+case 14 of 16: num_entries = 30
+case 14 of 16: num_entries = 40
+case 14 of 16: num_entries = 50
+case 14 of 16: num_entries = 250
+case 14 of 16: num_entries = 450
+case 14 of 16: num_entries = 650
+case 14 of 16: num_entries = 850
+case 14 of 16: num_entries = 1050
+case 14 of 16: num_entries = 1250
+case 14 of 16: num_entries = 1450
+case 14 of 16: num_entries = 1650
+case 14 of 16: num_entries = 1850
+case 15 of 16: num_entries = 0
+case 15 of 16: num_entries = 10
+case 15 of 16: num_entries = 20
+case 15 of 16: num_entries = 30
+case 15 of 16: num_entries = 40
+case 15 of 16: num_entries = 50
+case 15 of 16: num_entries = 250
+case 15 of 16: num_entries = 450
+case 15 of 16: num_entries = 650
+case 15 of 16: num_entries = 850
+case 15 of 16: num_entries = 1050
+case 15 of 16: num_entries = 1250
+case 15 of 16: num_entries = 1450
+case 15 of 16: num_entries = 1650
+case 15 of 16: num_entries = 1850
+case 16 of 16: num_entries = 0
+case 16 of 16: num_entries = 10
+case 16 of 16: num_entries = 20
+case 16 of 16: num_entries = 30
+case 16 of 16: num_entries = 40
+case 16 of 16: num_entries = 50
+case 16 of 16: num_entries = 250
+case 16 of 16: num_entries = 450
+case 16 of 16: num_entries = 650
+case 16 of 16: num_entries = 850
+case 16 of 16: num_entries = 1050
+case 16 of 16: num_entries = 1250
+case 16 of 16: num_entries = 1450
+case 16 of 16: num_entries = 1650
+case 16 of 16: num_entries = 1850
+==== Test Harness.RandomizedLongDB
+==== Test MemTableTest.Simple
+key: 'k1d' -> 'v1'
+key: 'k2e' -> 'v2'
+key: 'k3f' -> 'v3'
+key: 'largekeyg' -> 'vlarge'
+==== Test TableTest.ApproximateOffsetOfPlain
+==== Test TableTest.ApproximateOffsetOfCompressed
+==== PASSED 11 tests
+==7191== 
+==7191== HEAP SUMMARY:
+==7191==     in use at exit: 1,608 bytes in 7 blocks
+==7191==   total heap usage: 14,238,864 allocs, 14,238,857 frees, 486,012,196 bytes allocated
+==7191== 
+==7191== LEAK SUMMARY:
+==7191==    definitely lost: 0 bytes in 0 blocks
+==7191==    indirectly lost: 0 bytes in 0 blocks
+==7191==      possibly lost: 288 bytes in 1 blocks
+==7191==    still reachable: 1,320 bytes in 6 blocks
+==7191==         suppressed: 0 bytes in 0 blocks
+==7191== Rerun with --leak-check=full to see details of leaked memory
+==7191== 
+==7191== For counts of detected and suppressed errors, rerun with: -v
+==7191== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running arena_test
+==9049== Memcheck, a memory error detector
+==9049== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==9049== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==9049== Command: out-static/arena_test
+==9049== 
+==== Test ArenaTest.Empty
+==== Test ArenaTest.Simple
+==== PASSED 2 tests
+==9049== 
+==9049== HEAP SUMMARY:
+==9049==     in use at exit: 72 bytes in 2 blocks
+==9049==   total heap usage: 400 allocs, 398 frees, 6,121,969 bytes allocated
+==9049== 
+==9049== LEAK SUMMARY:
+==9049==    definitely lost: 0 bytes in 0 blocks
+==9049==    indirectly lost: 0 bytes in 0 blocks
+==9049==      possibly lost: 0 bytes in 0 blocks
+==9049==    still reachable: 72 bytes in 2 blocks
+==9049==         suppressed: 0 bytes in 0 blocks
+==9049== Rerun with --leak-check=full to see details of leaked memory
+==9049== 
+==9049== For counts of detected and suppressed errors, rerun with: -v
+==9049== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running bloom_test
+==9954== Memcheck, a memory error detector
+==9954== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==9954== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==9954== Command: out-static/bloom_test
+==9954== 
+==== Test BloomTest.EmptyFilter
+==== Test BloomTest.Small
+==== Test BloomTest.VaryingLengths
+False positives:  0.23% @ length =      1 ; bytes =      9
+False positives:  0.44% @ length =      2 ; bytes =      9
+False positives:  0.75% @ length =      3 ; bytes =      9
+False positives:  1.08% @ length =      4 ; bytes =      9
+False positives:  1.20% @ length =      5 ; bytes =      9
+False positives:  1.59% @ length =      6 ; bytes =      9
+False positives:  1.53% @ length =      7 ; bytes =     10
+False positives:  1.81% @ length =      8 ; bytes =     11
+False positives:  0.79% @ length =      9 ; bytes =     13
+False positives:  1.63% @ length =     10 ; bytes =     14
+False positives:  1.24% @ length =     20 ; bytes =     26
+False positives:  0.84% @ length =     30 ; bytes =     39
+False positives:  1.07% @ length =     40 ; bytes =     51
+False positives:  1.09% @ length =     50 ; bytes =     64
+False positives:  1.12% @ length =     60 ; bytes =     76
+False positives:  0.93% @ length =     70 ; bytes =     89
+False positives:  1.16% @ length =     80 ; bytes =    101
+False positives:  1.07% @ length =     90 ; bytes =    114
+False positives:  0.83% @ length =    100 ; bytes =    126
+False positives:  0.96% @ length =    200 ; bytes =    251
+False positives:  0.77% @ length =    300 ; bytes =    376
+False positives:  0.81% @ length =    400 ; bytes =    501
+False positives:  0.74% @ length =    500 ; bytes =    626
+False positives:  0.78% @ length =    600 ; bytes =    751
+False positives:  0.91% @ length =    700 ; bytes =    876
+False positives:  0.88% @ length =    800 ; bytes =   1001
+False positives:  0.97% @ length =    900 ; bytes =   1126
+False positives:  0.90% @ length =   1000 ; bytes =   1251
+False positives:  0.89% @ length =   2000 ; bytes =   2501
+False positives:  0.95% @ length =   3000 ; bytes =   3751
+False positives:  1.01% @ length =   4000 ; bytes =   5001
+False positives:  0.89% @ length =   5000 ; bytes =   6251
+False positives:  1.03% @ length =   6000 ; bytes =   7501
+False positives:  0.78% @ length =   7000 ; bytes =   8751
+False positives:  1.09% @ length =   8000 ; bytes =  10001
+False positives:  1.09% @ length =   9000 ; bytes =  11251
+False positives:  0.81% @ length =  10000 ; bytes =  12501
+Filters: 33 good, 4 mediocre
+==== PASSED 3 tests
+==9954== 
+==9954== HEAP SUMMARY:
+==9954==     in use at exit: 120 bytes in 2 blocks
+==9954==   total heap usage: 60,354 allocs, 60,352 frees, 4,703,686 bytes allocated
+==9954== 
+==9954== LEAK SUMMARY:
+==9954==    definitely lost: 0 bytes in 0 blocks
+==9954==    indirectly lost: 0 bytes in 0 blocks
+==9954==      possibly lost: 0 bytes in 0 blocks
+==9954==    still reachable: 120 bytes in 2 blocks
+==9954==         suppressed: 0 bytes in 0 blocks
+==9954== Rerun with --leak-check=full to see details of leaked memory
+==9954== 
+==9954== For counts of detected and suppressed errors, rerun with: -v
+==9954== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running cache_test
+==17577== Memcheck, a memory error detector
+==17577== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==17577== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==17577== Command: out-static/cache_test
+==17577== 
+==== Test CacheTest.HitAndMiss
+==== Test CacheTest.Erase
+==== Test CacheTest.EntriesArePinned
+==== Test CacheTest.EvictionPolicy
+==== Test CacheTest.HeavyEntries
+==== Test CacheTest.NewId
+==== Test CacheTest.Prune
+==== PASSED 7 tests
+==17577== 
+==17577== HEAP SUMMARY:
+==17577==     in use at exit: 216 bytes in 2 blocks
+==17577==   total heap usage: 5,819 allocs, 5,817 frees, 308,425 bytes allocated
+==17577== 
+==17577== LEAK SUMMARY:
+==17577==    definitely lost: 0 bytes in 0 blocks
+==17577==    indirectly lost: 0 bytes in 0 blocks
+==17577==      possibly lost: 0 bytes in 0 blocks
+==17577==    still reachable: 216 bytes in 2 blocks
+==17577==         suppressed: 0 bytes in 0 blocks
+==17577== Rerun with --leak-check=full to see details of leaked memory
+==17577== 
+==17577== For counts of detected and suppressed errors, rerun with: -v
+==17577== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running coding_test
+==19489== Memcheck, a memory error detector
+==19489== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==19489== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==19489== Command: out-static/coding_test
+==19489== 
+==== Test Coding.Fixed32
+==== Test Coding.Fixed64
+==== Test Coding.EncodingOutput
+==== Test Coding.Varint32
+==== Test Coding.Varint64
+==== Test Coding.Varint32Overflow
+==== Test Coding.Varint32Truncation
+==== Test Coding.Varint64Overflow
+==== Test Coding.Varint64Truncation
+==== Test Coding.Strings
+==== PASSED 10 tests
+==19489== 
+==19489== HEAP SUMMARY:
+==19489==     in use at exit: 408 bytes in 2 blocks
+==19489==   total heap usage: 81 allocs, 79 frees, 1,070,863 bytes allocated
+==19489== 
+==19489== LEAK SUMMARY:
+==19489==    definitely lost: 0 bytes in 0 blocks
+==19489==    indirectly lost: 0 bytes in 0 blocks
+==19489==      possibly lost: 0 bytes in 0 blocks
+==19489==    still reachable: 408 bytes in 2 blocks
+==19489==         suppressed: 0 bytes in 0 blocks
+==19489== Rerun with --leak-check=full to see details of leaked memory
+==19489== 
+==19489== For counts of detected and suppressed errors, rerun with: -v
+==19489== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running crc32c_test
+==28555== Memcheck, a memory error detector
+==28555== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==28555== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==28555== Command: out-static/crc32c_test
+==28555== 
+==== Test CRC.StandardResults
+==== Test CRC.Values
+==== Test CRC.Extend
+==== Test CRC.Mask
+==== PASSED 4 tests
+==28555== 
+==28555== HEAP SUMMARY:
+==28555==     in use at exit: 120 bytes in 2 blocks
+==28555==   total heap usage: 4 allocs, 2 frees, 192 bytes allocated
+==28555== 
+==28555== LEAK SUMMARY:
+==28555==    definitely lost: 0 bytes in 0 blocks
+==28555==    indirectly lost: 0 bytes in 0 blocks
+==28555==      possibly lost: 0 bytes in 0 blocks
+==28555==    still reachable: 120 bytes in 2 blocks
+==28555==         suppressed: 0 bytes in 0 blocks
+==28555== Rerun with --leak-check=full to see details of leaked memory
+==28555== 
+==28555== For counts of detected and suppressed errors, rerun with: -v
+==28555== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running env_test
+==30087== Memcheck, a memory error detector
+==30087== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==30087== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==30087== Command: out-static/env_test
+==30087== 
+==== Test EnvPosixTest.RunImmediately
+==== Test EnvPosixTest.RunMany
+==== Test EnvPosixTest.StartThread
+==== PASSED 3 tests
+==30087== 
+==30087== HEAP SUMMARY:
+==30087==     in use at exit: 2,176 bytes in 9 blocks
+==30087==   total heap usage: 14 allocs, 5 frees, 2,296 bytes allocated
+==30087== 
+==30087== LEAK SUMMARY:
+==30087==    definitely lost: 0 bytes in 0 blocks
+==30087==    indirectly lost: 0 bytes in 0 blocks
+==30087==      possibly lost: 1,152 bytes in 4 blocks
+==30087==    still reachable: 1,024 bytes in 5 blocks
+==30087==         suppressed: 0 bytes in 0 blocks
+==30087== Rerun with --leak-check=full to see details of leaked memory
+==30087== 
+==30087== For counts of detected and suppressed errors, rerun with: -v
+==30087== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+***** Running hash_test
+==32340== Memcheck, a memory error detector
+==32340== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==32340== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==32340== Command: out-static/hash_test
+==32340== 
+==== Test HASH.SignedUnsignedIssue
+==== PASSED 1 tests
+==32340== 
+==32340== HEAP SUMMARY:
+==32340==     in use at exit: 48 bytes in 2 blocks
+==32340==   total heap usage: 2 allocs, 0 frees, 48 bytes allocated
+==32340== 
+==32340== LEAK SUMMARY:
+==32340==    definitely lost: 0 bytes in 0 blocks
+==32340==    indirectly lost: 0 bytes in 0 blocks
+==32340==      possibly lost: 0 bytes in 0 blocks
+==32340==    still reachable: 48 bytes in 2 blocks
+==32340==         suppressed: 0 bytes in 0 blocks
+==32340== Rerun with --leak-check=full to see details of leaked memory
+==32340== 
+==32340== For counts of detected and suppressed errors, rerun with: -v
+==32340== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
