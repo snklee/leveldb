@@ -1,0 +1,794 @@
+for t in autocompact_test c_test corruption_test db_test dbformat_test fault_injection_test filename_test log_test recovery_test skiplist_test version_edit_test version_set_test write_batch_test memenv_test issue178_test issue200_test filter_block_test table_test arena_test bloom_test cache_test coding_test crc32c_test env_test hash_test; do echo "***** Running $t"; valgrind --leak-check=full -v out-static/$t || exit 1; done
+***** Running autocompact_test
+==15380== Memcheck, a memory error detector
+==15380== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==15380== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==15380== Command: out-static/autocompact_test
+==15380== 
+--15380-- Valgrind options:
+--15380--    --leak-check=full
+--15380--    -v
+--15380-- Contents of /proc/version:
+--15380--   Linux version 3.13.0-83-generic (buildd@lgw01-55) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #127-Ubuntu SMP Fri Mar 11 00:25:37 UTC 2016
+--15380-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--15380-- Page sizes: currently 4096, max supported 4096
+--15380-- Valgrind library directory: /usr/lib/valgrind
+--15380-- Reading syms from /home/rkadierding/playGround/schoolWork/473/ass4/candidates/leveldb/out-static/autocompact_test
+--15380-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--15380--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--15380--   .. CRC mismatch (computed ef2bc4a1 wanted 12987a55)
+--15380--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--15380--   .. CRC is valid
+--15380-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--15380--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--15380--   .. CRC mismatch (computed 4f1eed43 wanted a323a3ab)
+--15380--    object doesn't have a symbol table
+--15380--    object doesn't have a dynamic symbol table
+--15380-- Scheduler: using generic scheduler lock implementation.
+--15380-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==15380== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-15380-by-rkadierding-on-???
+==15380== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-15380-by-rkadierding-on-???
+==15380== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-15380-by-rkadierding-on-???
+==15380== 
+==15380== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==15380== don't want to do, unless you know exactly what you're doing,
+==15380== or are doing some strange experiment):
+==15380==   /usr/lib/valgrind/../../bin/vgdb --pid=15380 ...command...
+==15380== 
+==15380== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==15380==   /path/to/gdb out-static/autocompact_test
+==15380== and then give GDB the following command
+==15380==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=15380
+==15380== --pid is optional if only one valgrind process is running
+==15380== 
+--15380-- REDIR: 0x4019ca0 (ld-linux-x86-64.so.2:strlen) redirected to 0x380764b1 (???)
+--15380-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--15380--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--15380--   .. CRC mismatch (computed fc68135e wanted 45f5e986)
+--15380--    object doesn't have a symbol table
+--15380-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--15380--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--15380--   .. CRC mismatch (computed ae683f7e wanted 08c06df2)
+--15380--    object doesn't have a symbol table
+==15380== WARNING: new redirection conflicts with existing -- ignoring it
+--15380--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x380764b1 ???
+--15380--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--15380-- REDIR: 0x4019a50 (ld-linux-x86-64.so.2:index) redirected to 0x4c2dd50 (index)
+--15380-- REDIR: 0x4019c70 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2f2f0 (strcmp)
+--15380-- REDIR: 0x401a9c0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c31da0 (mempcpy)
+--15380-- Reading syms from /usr/lib/libsnappy.so.1.1.4
+--15380--   Considering /usr/lib/libsnappy.so.1.1.4 ..
+--15380--   .. CRC mismatch (computed 7a6d1382 wanted 5d4c225d)
+--15380--    object doesn't have a symbol table
+--15380-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+--15380--   Considering /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19 ..
+--15380--   .. CRC mismatch (computed 5ce96d3c wanted bf86fabd)
+--15380--    object doesn't have a symbol table
+--15380-- Reading syms from /lib/x86_64-linux-gnu/libm-2.19.so
+--15380--   Considering /lib/x86_64-linux-gnu/libm-2.19.so ..
+--15380--   .. CRC mismatch (computed 0fbb5cf0 wanted cac31e3b)
+--15380--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.19.so ..
+--15380--   .. CRC is valid
+--15380-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--15380--   Considering /lib/x86_64-linux-gnu/libgcc_s.so.1 ..
+--15380--   .. CRC mismatch (computed 6116126e wanted 54e3f1f2)
+--15380--    object doesn't have a symbol table
+--15380-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.19.so
+--15380--   Considering /lib/x86_64-linux-gnu/libpthread-2.19.so ..
+--15380--   .. CRC mismatch (computed 4841b2fb wanted eec353ab)
+--15380--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libpthread-2.19.so ..
+--15380--   .. CRC is valid
+--15380-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--15380--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--15380--   .. CRC mismatch (computed 600bae51 wanted b4d0580d)
+--15380--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--15380--   .. CRC is valid
+--15380-- REDIR: 0x5b07d60 (libc.so.6:strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--15380-- REDIR: 0x5b0a050 (libc.so.6:strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--15380-- REDIR: 0x5b07530 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--15380-- REDIR: 0x5b057c0 (libc.so.6:rindex) redirected to 0x4c2da30 (rindex)
+--15380-- REDIR: 0x509bd90 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c2b070 (operator new(unsigned long))
+--15380-- REDIR: 0x5bcb090 (libc.so.6:__memmove_ssse3_back) redirected to 0x4c2f450 (memcpy@GLIBC_2.2.5)
+--15380-- REDIR: 0x509a0f0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2c250 (operator delete(void*))
+--15380-- REDIR: 0x5b03ac0 (libc.so.6:strlen) redirected to 0x4c2e0e0 (strlen)
+--15380-- REDIR: 0x5b03f30 (libc.so.6:__GI_strncmp) redirected to 0x4c2e930 (__GI_strncmp)
+--15380-- REDIR: 0x5b0eac0 (libc.so.6:strchrnul) redirected to 0x4c319b0 (strchrnul)
+==== Test AutoCompactTest.ReadAll
+--15380-- REDIR: 0x5b0c730 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--15380-- REDIR: 0x5b12fd0 (libc.so.6:__memcpy_sse2_unaligned) redirected to 0x4c2f6b0 (memcpy@@GLIBC_2.14)
+--15380-- REDIR: 0x5b0c780 (libc.so.6:__GI_memcpy) redirected to 0x4c2fc90 (__GI_memcpy)
+--15380-- REDIR: 0x5b07bf0 (libc.so.6:__GI_stpcpy) redirected to 0x4c30da0 (__GI_stpcpy)
+--15380-- REDIR: 0x509bea0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c2b790 (operator new[](unsigned long))
+--15380-- REDIR: 0x509a120 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4c2c7d0 (operator delete[](void*))
+--15380-- REDIR: 0x5b06fa0 (libc.so.6:__GI_memcmp) redirected to 0x4c30b80 (__GI_memcmp)
+--15380-- REDIR: 0x5b02070 (libc.so.6:strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--15380-- REDIR: 0x5bbb200 (libc.so.6:__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
+--15380-- REDIR: 0x5b075c0 (libc.so.6:memset) redirected to 0x4c31350 (memset)
+--15380-- REDIR: 0x5afd750 (libc.so.6:malloc) redirected to 0x4c2ab10 (malloc)
+--15380-- REDIR: 0x5b073a0 (libc.so.6:__GI_memmove) redirected to 0x4c31660 (__GI_memmove)
+--15380-- REDIR: 0x5afddf0 (libc.so.6:free) redirected to 0x4c2bd80 (free)
+--15380-- REDIR: 0x5b06f60 (libc.so.6:bcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--15380-- REDIR: 0x5bdb060 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c30c00 (__memcmp_sse4_1)
+--15380-- REDIR: 0x5b06410 (libc.so.6:__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+--15380-- REDIR: 0xffffffffff600000 (???:???) redirected to 0x38076493 (???)
+--15380-- REDIR: 0x5b03540 (libc.so.6:__GI_strcpy) redirected to 0x4c2e2a0 (__GI_strcpy)
+--15380-- REDIR: 0x5b020b0 (libc.so.6:__GI_strcmp) redirected to 0x4c2f200 (__GI_strcmp)
+--15380-- REDIR: 0x5afe220 (libc.so.6:calloc) redirected to 0x4c2cbf0 (calloc)
+iter   1 => 100.040 MB [other   0.000 MB]
+iter   2 => 100.040 MB [other   0.000 MB]
+iter   3 => 100.040 MB [other   0.000 MB]
+iter   4 => 100.040 MB [other   0.000 MB]
+iter   5 => 100.040 MB [other   0.000 MB]
+iter   6 => 100.040 MB [other   0.000 MB]
+iter   7 =>  79.524 MB [other   0.000 MB]
+iter   8 =>  59.008 MB [other   0.000 MB]
+iter   9 =>  38.492 MB [other   0.000 MB]
+iter  10 =>  17.976 MB [other   0.000 MB]
+iter  11 =>   4.103 MB [other   0.000 MB]
+==== Test AutoCompactTest.ReadHalf
+iter   1 =>  50.017 MB [other  50.023 MB]
+iter   2 =>  50.020 MB [other  50.021 MB]
+iter   3 =>  50.020 MB [other  50.021 MB]
+iter   4 =>  50.020 MB [other  50.021 MB]
+iter   5 =>  50.020 MB [other  50.021 MB]
+iter   6 =>  50.020 MB [other  50.021 MB]
+iter   7 =>  29.504 MB [other  50.021 MB]
+iter   8 =>   8.988 MB [other  50.021 MB]
+iter   9 =>   4.103 MB [other  34.389 MB]
+==== PASSED 2 tests
+==15380== 
+==15380== HEAP SUMMARY:
+==15380==     in use at exit: 1,272 bytes in 7 blocks
+==15380==   total heap usage: 64,913 allocs, 64,906 frees, 2,423,310,259 bytes allocated
+==15380== 
+==15380== Searching for pointers to 7 not-freed blocks
+==15380== Checked 2,311,480 bytes
+==15380== 
+==15380== 288 bytes in 1 blocks are possibly lost in loss record 5 of 7
+==15380==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15380==    by 0x4012E54: allocate_dtv (dl-tls.c:296)
+==15380==    by 0x4012E54: _dl_allocate_tls (dl-tls.c:460)
+==15380==    by 0x5865DA0: allocate_stack (allocatestack.c:589)
+==15380==    by 0x5865DA0: pthread_create@@GLIBC_2.2.5 (pthread_create.c:500)
+==15380==    by 0x42E527: leveldb::(anonymous namespace)::PosixEnv::Schedule(void (*)(void*), void*) (env_posix.cc:551)
+==15380==    by 0x40E1D0: MaybeScheduleCompaction (db_impl.cc:658)
+==15380==    by 0x40E1D0: leveldb::DBImpl::MakeRoomForWrite(bool) (db_impl.cc:1374)
+==15380==    by 0x40D953: leveldb::DBImpl::Write(leveldb::WriteOptions const&, leveldb::WriteBatch*) (db_impl.cc:1209)
+==15380==    by 0x40D5F9: Put (db_impl.cc:1478)
+==15380==    by 0x40D5F9: leveldb::DBImpl::Put(leveldb::WriteOptions const&, leveldb::Slice const&, leveldb::Slice const&) (db_impl.cc:1186)
+==15380==    by 0x402ECB: leveldb::AutoCompactTest::DoReads(int) (autocompact_test.cc:64)
+==15380==    by 0x40483D: _Test_ReadAll (autocompact_test.cc:106)
+==15380==    by 0x40483D: leveldb::_Test_ReadAll::_RunIt() (autocompact_test.cc:106)
+==15380==    by 0x431610: leveldb::test::RunAllTests() (testharness.cc:52)
+==15380==    by 0x5A9CEC4: (below main) (libc-start.c:287)
+==15380== 
+==15380== LEAK SUMMARY:
+==15380==    definitely lost: 0 bytes in 0 blocks
+==15380==    indirectly lost: 0 bytes in 0 blocks
+==15380==      possibly lost: 288 bytes in 1 blocks
+==15380==    still reachable: 984 bytes in 6 blocks
+==15380==         suppressed: 0 bytes in 0 blocks
+==15380== Reachable blocks (those to which a pointer was found) are not shown.
+==15380== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==15380== 
+==15380== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==15380== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+***** Running c_test
+==27042== Memcheck, a memory error detector
+==27042== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==27042== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==27042== Command: out-static/c_test
+==27042== 
+--27042-- Valgrind options:
+--27042--    --leak-check=full
+--27042--    -v
+--27042-- Contents of /proc/version:
+--27042--   Linux version 3.13.0-83-generic (buildd@lgw01-55) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #127-Ubuntu SMP Fri Mar 11 00:25:37 UTC 2016
+--27042-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--27042-- Page sizes: currently 4096, max supported 4096
+--27042-- Valgrind library directory: /usr/lib/valgrind
+--27042-- Reading syms from /home/rkadierding/playGround/schoolWork/473/ass4/candidates/leveldb/out-static/c_test
+--27042-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--27042--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--27042--   .. CRC mismatch (computed ef2bc4a1 wanted 12987a55)
+--27042--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--27042--   .. CRC is valid
+--27042-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--27042--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--27042--   .. CRC mismatch (computed 4f1eed43 wanted a323a3ab)
+--27042--    object doesn't have a symbol table
+--27042--    object doesn't have a dynamic symbol table
+--27042-- Scheduler: using generic scheduler lock implementation.
+--27042-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==27042== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-27042-by-rkadierding-on-???
+==27042== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-27042-by-rkadierding-on-???
+==27042== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-27042-by-rkadierding-on-???
+==27042== 
+==27042== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==27042== don't want to do, unless you know exactly what you're doing,
+==27042== or are doing some strange experiment):
+==27042==   /usr/lib/valgrind/../../bin/vgdb --pid=27042 ...command...
+==27042== 
+==27042== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==27042==   /path/to/gdb out-static/c_test
+==27042== and then give GDB the following command
+==27042==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=27042
+==27042== --pid is optional if only one valgrind process is running
+==27042== 
+--27042-- REDIR: 0x4019ca0 (ld-linux-x86-64.so.2:strlen) redirected to 0x380764b1 (???)
+--27042-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--27042--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--27042--   .. CRC mismatch (computed fc68135e wanted 45f5e986)
+--27042--    object doesn't have a symbol table
+--27042-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--27042--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--27042--   .. CRC mismatch (computed ae683f7e wanted 08c06df2)
+--27042--    object doesn't have a symbol table
+==27042== WARNING: new redirection conflicts with existing -- ignoring it
+--27042--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x380764b1 ???
+--27042--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--27042-- REDIR: 0x4019a50 (ld-linux-x86-64.so.2:index) redirected to 0x4c2dd50 (index)
+--27042-- REDIR: 0x4019c70 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2f2f0 (strcmp)
+--27042-- REDIR: 0x401a9c0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c31da0 (mempcpy)
+--27042-- Reading syms from /usr/lib/libsnappy.so.1.1.4
+--27042--   Considering /usr/lib/libsnappy.so.1.1.4 ..
+--27042--   .. CRC mismatch (computed 7a6d1382 wanted 5d4c225d)
+--27042--    object doesn't have a symbol table
+--27042-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+--27042--   Considering /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19 ..
+--27042--   .. CRC mismatch (computed 5ce96d3c wanted bf86fabd)
+--27042--    object doesn't have a symbol table
+--27042-- Reading syms from /lib/x86_64-linux-gnu/libm-2.19.so
+--27042--   Considering /lib/x86_64-linux-gnu/libm-2.19.so ..
+--27042--   .. CRC mismatch (computed 0fbb5cf0 wanted cac31e3b)
+--27042--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.19.so ..
+--27042--   .. CRC is valid
+--27042-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--27042--   Considering /lib/x86_64-linux-gnu/libgcc_s.so.1 ..
+--27042--   .. CRC mismatch (computed 6116126e wanted 54e3f1f2)
+--27042--    object doesn't have a symbol table
+--27042-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.19.so
+--27042--   Considering /lib/x86_64-linux-gnu/libpthread-2.19.so ..
+--27042--   .. CRC mismatch (computed 4841b2fb wanted eec353ab)
+--27042--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libpthread-2.19.so ..
+--27042--   .. CRC is valid
+--27042-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--27042--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--27042--   .. CRC mismatch (computed 600bae51 wanted b4d0580d)
+--27042--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--27042--   .. CRC is valid
+--27042-- REDIR: 0x5b07d60 (libc.so.6:strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--27042-- REDIR: 0x5b0a050 (libc.so.6:strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--27042-- REDIR: 0x5b07530 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--27042-- REDIR: 0x5b057c0 (libc.so.6:rindex) redirected to 0x4c2da30 (rindex)
+--27042-- REDIR: 0x5b03ac0 (libc.so.6:strlen) redirected to 0x4c2e0e0 (strlen)
+--27042-- REDIR: 0x5b03f30 (libc.so.6:__GI_strncmp) redirected to 0x4c2e930 (__GI_strncmp)
+--27042-- REDIR: 0x5b0eac0 (libc.so.6:strchrnul) redirected to 0x4c319b0 (strchrnul)
+=== Test create_objects
+--27042-- REDIR: 0x509bd90 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c2b070 (operator new(unsigned long))
+--27042-- REDIR: 0x509bea0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c2b790 (operator new[](unsigned long))
+--27042-- REDIR: 0x5b075c0 (libc.so.6:memset) redirected to 0x4c31350 (memset)
+=== Test destroy
+--27042-- REDIR: 0x5b0c730 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--27042-- REDIR: 0x5b12fd0 (libc.so.6:__memcpy_sse2_unaligned) redirected to 0x4c2f6b0 (memcpy@@GLIBC_2.14)
+--27042-- REDIR: 0x5afd750 (libc.so.6:malloc) redirected to 0x4c2ab10 (malloc)
+--27042-- REDIR: 0x5b073a0 (libc.so.6:__GI_memmove) redirected to 0x4c31660 (__GI_memmove)
+--27042-- REDIR: 0x509a0f0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2c250 (operator delete(void*))
+--27042-- REDIR: 0x5afddf0 (libc.so.6:free) redirected to 0x4c2bd80 (free)
+--27042-- REDIR: 0x5b06f60 (libc.so.6:bcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--27042-- REDIR: 0x5bdb060 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c30c00 (__memcmp_sse4_1)
+--27042-- REDIR: 0x5b0c780 (libc.so.6:__GI_memcpy) redirected to 0x4c2fc90 (__GI_memcpy)
+--27042-- REDIR: 0x5b07bf0 (libc.so.6:__GI_stpcpy) redirected to 0x4c30da0 (__GI_stpcpy)
+--27042-- REDIR: 0x509a120 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4c2c7d0 (operator delete[](void*))
+=== Test open_error
+--27042-- REDIR: 0x5b06410 (libc.so.6:__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+=== Test leveldb_free
+=== Test open
+--27042-- REDIR: 0xffffffffff600000 (???:???) redirected to 0x38076493 (???)
+--27042-- REDIR: 0x5b06fa0 (libc.so.6:__GI_memcmp) redirected to 0x4c30b80 (__GI_memcmp)
+--27042-- REDIR: 0x5b03540 (libc.so.6:__GI_strcpy) redirected to 0x4c2e2a0 (__GI_strcpy)
+--27042-- REDIR: 0x5b020b0 (libc.so.6:__GI_strcmp) redirected to 0x4c2f200 (__GI_strcmp)
+=== Test put
+=== Test compactall
+--27042-- REDIR: 0x5afe220 (libc.so.6:calloc) redirected to 0x4c2cbf0 (calloc)
+=== Test compactrange
+=== Test writebatch
+=== Test iter
+--27042-- REDIR: 0x5bcb090 (libc.so.6:__memmove_ssse3_back) redirected to 0x4c2f450 (memcpy@GLIBC_2.2.5)
+=== Test approximate_sizes
+=== Test property
+=== Test snapshot
+=== Test repair
+=== Test filter
+=== Test cleanup
+PASS
+==27042== 
+==27042== HEAP SUMMARY:
+==27042==     in use at exit: 1,200 bytes in 5 blocks
+==27042==   total heap usage: 89,901 allocs, 89,896 frees, 10,009,684 bytes allocated
+==27042== 
+==27042== Searching for pointers to 5 not-freed blocks
+==27042== Checked 2,311,840 bytes
+==27042== 
+==27042== 288 bytes in 1 blocks are possibly lost in loss record 3 of 5
+==27042==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27042==    by 0x4012E54: allocate_dtv (dl-tls.c:296)
+==27042==    by 0x4012E54: _dl_allocate_tls (dl-tls.c:460)
+==27042==    by 0x5865DA0: allocate_stack (allocatestack.c:589)
+==27042==    by 0x5865DA0: pthread_create@@GLIBC_2.2.5 (pthread_create.c:500)
+==27042==    by 0x42DBA7: leveldb::(anonymous namespace)::PosixEnv::Schedule(void (*)(void*), void*) (env_posix.cc:551)
+==27042==    by 0x40D850: MaybeScheduleCompaction (db_impl.cc:658)
+==27042==    by 0x40D850: leveldb::DBImpl::MakeRoomForWrite(bool) (db_impl.cc:1374)
+==27042==    by 0x40CFD3: leveldb::DBImpl::Write(leveldb::WriteOptions const&, leveldb::WriteBatch*) (db_impl.cc:1209)
+==27042==    by 0x409CC0: leveldb::DBImpl::TEST_CompactMemTable() (db_impl.cc:622)
+==27042==    by 0x409C33: leveldb::DBImpl::CompactRange(leveldb::Slice const*, leveldb::Slice const*) (db_impl.cc:577)
+==27042==    by 0x405183: leveldb_compact_range (c.cc:272)
+==27042==    by 0x40305E: main (c_test.c:228)
+==27042== 
+==27042== LEAK SUMMARY:
+==27042==    definitely lost: 0 bytes in 0 blocks
+==27042==    indirectly lost: 0 bytes in 0 blocks
+==27042==      possibly lost: 288 bytes in 1 blocks
+==27042==    still reachable: 912 bytes in 4 blocks
+==27042==         suppressed: 0 bytes in 0 blocks
+==27042== Reachable blocks (those to which a pointer was found) are not shown.
+==27042== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==27042== 
+==27042== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==27042== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+***** Running corruption_test
+==3022== Memcheck, a memory error detector
+==3022== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==3022== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==3022== Command: out-static/corruption_test
+==3022== 
+--3022-- Valgrind options:
+--3022--    --leak-check=full
+--3022--    -v
+--3022-- Contents of /proc/version:
+--3022--   Linux version 3.13.0-83-generic (buildd@lgw01-55) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #127-Ubuntu SMP Fri Mar 11 00:25:37 UTC 2016
+--3022-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--3022-- Page sizes: currently 4096, max supported 4096
+--3022-- Valgrind library directory: /usr/lib/valgrind
+--3022-- Reading syms from /home/rkadierding/playGround/schoolWork/473/ass4/candidates/leveldb/out-static/corruption_test
+--3022-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--3022--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--3022--   .. CRC mismatch (computed ef2bc4a1 wanted 12987a55)
+--3022--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--3022--   .. CRC is valid
+--3022-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--3022--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--3022--   .. CRC mismatch (computed 4f1eed43 wanted a323a3ab)
+--3022--    object doesn't have a symbol table
+--3022--    object doesn't have a dynamic symbol table
+--3022-- Scheduler: using generic scheduler lock implementation.
+--3022-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==3022== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-3022-by-rkadierding-on-???
+==3022== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-3022-by-rkadierding-on-???
+==3022== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-3022-by-rkadierding-on-???
+==3022== 
+==3022== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==3022== don't want to do, unless you know exactly what you're doing,
+==3022== or are doing some strange experiment):
+==3022==   /usr/lib/valgrind/../../bin/vgdb --pid=3022 ...command...
+==3022== 
+==3022== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==3022==   /path/to/gdb out-static/corruption_test
+==3022== and then give GDB the following command
+==3022==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=3022
+==3022== --pid is optional if only one valgrind process is running
+==3022== 
+--3022-- REDIR: 0x4019ca0 (ld-linux-x86-64.so.2:strlen) redirected to 0x380764b1 (???)
+--3022-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--3022--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--3022--   .. CRC mismatch (computed fc68135e wanted 45f5e986)
+--3022--    object doesn't have a symbol table
+--3022-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--3022--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--3022--   .. CRC mismatch (computed ae683f7e wanted 08c06df2)
+--3022--    object doesn't have a symbol table
+==3022== WARNING: new redirection conflicts with existing -- ignoring it
+--3022--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x380764b1 ???
+--3022--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--3022-- REDIR: 0x4019a50 (ld-linux-x86-64.so.2:index) redirected to 0x4c2dd50 (index)
+--3022-- REDIR: 0x4019c70 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2f2f0 (strcmp)
+--3022-- REDIR: 0x401a9c0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c31da0 (mempcpy)
+--3022-- Reading syms from /usr/lib/libsnappy.so.1.1.4
+--3022--   Considering /usr/lib/libsnappy.so.1.1.4 ..
+--3022--   .. CRC mismatch (computed 7a6d1382 wanted 5d4c225d)
+--3022--    object doesn't have a symbol table
+--3022-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+--3022--   Considering /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19 ..
+--3022--   .. CRC mismatch (computed 5ce96d3c wanted bf86fabd)
+--3022--    object doesn't have a symbol table
+--3022-- Reading syms from /lib/x86_64-linux-gnu/libm-2.19.so
+--3022--   Considering /lib/x86_64-linux-gnu/libm-2.19.so ..
+--3022--   .. CRC mismatch (computed 0fbb5cf0 wanted cac31e3b)
+--3022--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.19.so ..
+--3022--   .. CRC is valid
+--3022-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--3022--   Considering /lib/x86_64-linux-gnu/libgcc_s.so.1 ..
+--3022--   .. CRC mismatch (computed 6116126e wanted 54e3f1f2)
+--3022--    object doesn't have a symbol table
+--3022-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.19.so
+--3022--   Considering /lib/x86_64-linux-gnu/libpthread-2.19.so ..
+--3022--   .. CRC mismatch (computed 4841b2fb wanted eec353ab)
+--3022--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libpthread-2.19.so ..
+--3022--   .. CRC is valid
+--3022-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--3022--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--3022--   .. CRC mismatch (computed 600bae51 wanted b4d0580d)
+--3022--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--3022--   .. CRC is valid
+--3022-- REDIR: 0x5b07d60 (libc.so.6:strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--3022-- REDIR: 0x5b0a050 (libc.so.6:strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--3022-- REDIR: 0x5b07530 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--3022-- REDIR: 0x5b057c0 (libc.so.6:rindex) redirected to 0x4c2da30 (rindex)
+--3022-- REDIR: 0x509bd90 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c2b070 (operator new(unsigned long))
+--3022-- REDIR: 0x5bcb090 (libc.so.6:__memmove_ssse3_back) redirected to 0x4c2f450 (memcpy@GLIBC_2.2.5)
+--3022-- REDIR: 0x509a0f0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2c250 (operator delete(void*))
+--3022-- REDIR: 0x5b03ac0 (libc.so.6:strlen) redirected to 0x4c2e0e0 (strlen)
+--3022-- REDIR: 0x5b03f30 (libc.so.6:__GI_strncmp) redirected to 0x4c2e930 (__GI_strncmp)
+--3022-- REDIR: 0x5b0eac0 (libc.so.6:strchrnul) redirected to 0x4c319b0 (strchrnul)
+==== Test CorruptionTest.Recovery
+--3022-- REDIR: 0x509bea0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c2b790 (operator new[](unsigned long))
+--3022-- REDIR: 0x5b075c0 (libc.so.6:memset) redirected to 0x4c31350 (memset)
+--3022-- REDIR: 0x5b0c730 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--3022-- REDIR: 0x5b12fd0 (libc.so.6:__memcpy_sse2_unaligned) redirected to 0x4c2f6b0 (memcpy@@GLIBC_2.14)
+--3022-- REDIR: 0x5b0c780 (libc.so.6:__GI_memcpy) redirected to 0x4c2fc90 (__GI_memcpy)
+--3022-- REDIR: 0x5b07bf0 (libc.so.6:__GI_stpcpy) redirected to 0x4c30da0 (__GI_stpcpy)
+--3022-- REDIR: 0x509a120 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4c2c7d0 (operator delete[](void*))
+--3022-- REDIR: 0x5b06fa0 (libc.so.6:__GI_memcmp) redirected to 0x4c30b80 (__GI_memcmp)
+--3022-- REDIR: 0x5b02070 (libc.so.6:strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--3022-- REDIR: 0x5bbb200 (libc.so.6:__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
+--3022-- REDIR: 0x5afd750 (libc.so.6:malloc) redirected to 0x4c2ab10 (malloc)
+--3022-- REDIR: 0x5b073a0 (libc.so.6:__GI_memmove) redirected to 0x4c31660 (__GI_memmove)
+--3022-- REDIR: 0x5afddf0 (libc.so.6:free) redirected to 0x4c2bd80 (free)
+--3022-- REDIR: 0x5b06f60 (libc.so.6:bcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--3022-- REDIR: 0x5bdb060 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c30c00 (__memcmp_sse4_1)
+--3022-- REDIR: 0x5b06410 (libc.so.6:__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+--3022-- REDIR: 0xffffffffff600000 (???:???) redirected to 0x38076493 (???)
+--3022-- REDIR: 0x5b03540 (libc.so.6:__GI_strcpy) redirected to 0x4c2e2a0 (__GI_strcpy)
+--3022-- REDIR: 0x5b020b0 (libc.so.6:__GI_strcmp) redirected to 0x4c2f200 (__GI_strcmp)
+expected=100..100; got=100; bad_keys=0; bad_values=0; missed=0
+expected=36..36; got=36; bad_keys=0; bad_values=0; missed=64
+==== Test CorruptionTest.RecoverWriteError
+==== Test CorruptionTest.NewFileErrorDuringWrite
+==== Test CorruptionTest.TableFile
+--3022-- REDIR: 0x5afe220 (libc.so.6:calloc) redirected to 0x4c2cbf0 (calloc)
+expected=90..99; got=98; bad_keys=0; bad_values=2; missed=0
+==== Test CorruptionTest.TableFileRepair
+expected=95..99; got=98; bad_keys=0; bad_values=0; missed=2
+==== Test CorruptionTest.TableFileIndexData
+expected=5000..9999; got=7962; bad_keys=0; bad_values=0; missed=0
+==== Test CorruptionTest.MissingDescriptor
+expected=1000..1000; got=1000; bad_keys=0; bad_values=0; missed=0
+==== Test CorruptionTest.SequenceNumberRecovery
+==== Test CorruptionTest.CorruptedDescriptor
+==== Test CorruptionTest.CompactionInputError
+--3022-- REDIR: 0x5b0e8b0 (libc.so.6:rawmemchr) redirected to 0x4c319f0 (rawmemchr)
+expected=5..9; got=8; bad_keys=0; bad_values=2; missed=0
+==3022== 
+==3022== Process terminating with default action of signal 2 (SIGINT)
+==3022==    at 0x5B6688B: ??? (syscall-template.S:81)
+==3022==    by 0x5AF4002: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1261)
+==3022==    by 0x5AF54DB: new_do_write (fileops.c:538)
+==3022==    by 0x5AF54DB: _IO_do_write@@GLIBC_2.2.5 (fileops.c:511)
+==3022==    by 0x5AF388F: _IO_file_sync@@GLIBC_2.2.5 (fileops.c:892)
+==3022==    by 0x5AEE792: fflush_unlocked (iofflush_u.c:39)
+==3022==    by 0x431D35: leveldb::(anonymous namespace)::PosixWritableFile::Flush() (env_posix.cc:209)
+==3022==    by 0x41868E: leveldb::log::Writer::EmitPhysicalRecord(leveldb::log::RecordType, char const*, unsigned long) (log_writer.cc:104)
+==3022==    by 0x4184EB: leveldb::log::Writer::AddRecord(leveldb::Slice const&) (log_writer.cc:76)
+==3022==    by 0x410B34: leveldb::DBImpl::Write(leveldb::WriteOptions const&, leveldb::WriteBatch*) (db_impl.cc:1223)
+==3022==    by 0x40583D: leveldb::CorruptionTest::Build(int) (corruption_test.cc:84)
+==3022==    by 0x404676: leveldb::_Test_CompactionInputError::_Run() (corruption_test.cc:329)
+==3022==    by 0x4073CC: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022== 
+==3022== HEAP SUMMARY:
+==3022==     in use at exit: 5,312,745 bytes in 4,885 blocks
+==3022==   total heap usage: 67,705 allocs, 62,820 frees, 221,657,680 bytes allocated
+==3022== 
+==3022== Searching for pointers to 4,885 not-freed blocks
+==3022== Checked 12,489,128 bytes
+==3022== 
+==3022== 37 bytes in 1 blocks are possibly lost in loss record 17 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F8265: std::string::append(unsigned long, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x42775C: leveldb::WriteBatch::WriteBatch() (basic_string.h:804)
+==3022==    by 0x40A63E: leveldb::DBImpl::DBImpl(leveldb::Options const&, std::string const&) (db_impl.cc:120)
+==3022==    by 0x411D10: leveldb::DB::Open(leveldb::Options const&, std::string const&, leveldb::DB**) (db_impl.cc:1493)
+==3022==    by 0x406CBD: Tester (corruption_test.cc:57)
+==3022==    by 0x406CBD: leveldb::CorruptionTest::Reopen() (corruption_test.cc:61)
+==3022==    by 0x407748: leveldb::CorruptionTest::CorruptionTest() (corruption_test.cc:44)
+==3022==    by 0x4073C4: _Test_CompactionInputError (corruption_test.cc:318)
+==3022==    by 0x4073C4: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022== 
+==3022== 41 bytes in 1 blocks are possibly lost in loss record 20 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F73D5: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F797D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x405761: Key (corruption_test.cc:191)
+==3022==    by 0x405761: leveldb::CorruptionTest::Build(int) (corruption_test.cc:75)
+==3022==    by 0x404676: leveldb::_Test_CompactionInputError::_Run() (corruption_test.cc:329)
+==3022==    by 0x4073CC: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022==    by 0x5A9CEC4: (below main) (libc-start.c:287)
+==3022== 
+==3022== 49 bytes in 1 blocks are possibly lost in loss record 22 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F73D5: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F797D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x42ABC9: leveldb::TableBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (table_builder.cc:113)
+==3022==    by 0x407E74: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:40)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022==    by 0x43195C: BGThread (env_posix.cc:581)
+==3022==    by 0x43195C: leveldb::(anonymous namespace)::PosixEnv::BGThreadWrapper(void*) (env_posix.cc:520)
+==3022==    by 0x5865181: start_thread (pthread_create.c:312)
+==3022== 
+==3022== 49 bytes in 1 blocks are possibly lost in loss record 23 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x42816B: leveldb::BlockBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (block_builder.cc:104)
+==3022==    by 0x42ABE5: leveldb::TableBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (table_builder.cc:115)
+==3022==    by 0x407E74: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:40)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022== 
+==3022== 49 bytes in 1 blocks are possibly lost in loss record 24 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x42816B: leveldb::BlockBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (block_builder.cc:104)
+==3022==    by 0x42AB85: leveldb::TableBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (table_builder.cc:105)
+==3022==    by 0x407E74: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:40)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022== 
+==3022== 67 bytes in 1 blocks are possibly lost in loss record 28 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x4076D2: leveldb::CorruptionTest::CorruptionTest() (corruption_test.cc:39)
+==3022==    by 0x4073C4: _Test_CompactionInputError (corruption_test.cc:318)
+==3022==    by 0x4073C4: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022==    by 0x5A9CEC4: (below main) (libc-start.c:287)
+==3022== 
+==3022== 67 bytes in 1 blocks are possibly lost in loss record 29 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x41721D: operator+<char, std::char_traits<char>, std::allocator<char> > (basic_string.h:2405)
+==3022==    by 0x41721D: leveldb::LockFileName(std::string const&) (filename.cc:55)
+==3022==    by 0x40B8EC: leveldb::DBImpl::Recover(leveldb::VersionEdit*, bool*) (db_impl.cc:281)
+==3022==    by 0x411D44: leveldb::DB::Open(leveldb::Options const&, std::string const&, leveldb::DB**) (db_impl.cc:1498)
+==3022==    by 0x406CBD: Tester (corruption_test.cc:57)
+==3022==    by 0x406CBD: leveldb::CorruptionTest::Reopen() (corruption_test.cc:61)
+==3022==    by 0x407748: leveldb::CorruptionTest::CorruptionTest() (corruption_test.cc:44)
+==3022==    by 0x4073C4: _Test_CompactionInputError (corruption_test.cc:318)
+==3022==    by 0x4073C4: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022== 
+==3022== 109 bytes in 1 blocks are possibly lost in loss record 32 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x41701D: length (char_traits.h:259)
+==3022==    by 0x41701D: append (basic_string.h:1009)
+==3022==    by 0x41701D: operator+<char, std::char_traits<char>, std::allocator<char> > (basic_string.h:2406)
+==3022==    by 0x41701D: leveldb::MakeFileName(std::string const&, unsigned long, char const*) (filename.cc:24)
+==3022==    by 0x41709D: leveldb::TableFileName(std::string const&, unsigned long) (filename.cc:34)
+==3022==    by 0x407D2B: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:27)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022== 
+==3022== 109 bytes in 1 blocks are possibly lost in loss record 33 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x41711A: length (char_traits.h:259)
+==3022==    by 0x41711A: append (basic_string.h:1009)
+==3022==    by 0x41711A: operator+<char, std::char_traits<char>, std::allocator<char> > (basic_string.h:2406)
+==3022==    by 0x41711A: leveldb::DescriptorFileName(std::string const&, unsigned long) (filename.cc:47)
+==3022==    by 0x421D3F: leveldb::VersionSet::LogAndApply(leveldb::VersionEdit*, leveldb::port::Mutex*) (version_set.cc:842)
+==3022==    by 0x411EB7: leveldb::DB::Open(leveldb::Options const&, std::string const&, leveldb::DB**) (db_impl.cc:1517)
+==3022==    by 0x406CBD: Tester (corruption_test.cc:57)
+==3022==    by 0x406CBD: leveldb::CorruptionTest::Reopen() (corruption_test.cc:61)
+==3022==    by 0x407748: leveldb::CorruptionTest::CorruptionTest() (corruption_test.cc:44)
+==3022==    by 0x4073C4: _Test_CompactionInputError (corruption_test.cc:318)
+==3022==    by 0x4073C4: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022== 
+==3022== 109 bytes in 1 blocks are possibly lost in loss record 34 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x41701D: length (char_traits.h:259)
+==3022==    by 0x41701D: append (basic_string.h:1009)
+==3022==    by 0x41701D: operator+<char, std::char_traits<char>, std::allocator<char> > (basic_string.h:2406)
+==3022==    by 0x41701D: leveldb::MakeFileName(std::string const&, unsigned long, char const*) (filename.cc:24)
+==3022==    by 0x416FBD: leveldb::LogFileName(std::string const&, unsigned long) (filename.cc:29)
+==3022==    by 0x411018: leveldb::DBImpl::MakeRoomForWrite(bool) (db_impl.cc:1358)
+==3022==    by 0x410923: leveldb::DBImpl::Write(leveldb::WriteOptions const&, leveldb::WriteBatch*) (db_impl.cc:1209)
+==3022==    by 0x40583D: leveldb::CorruptionTest::Build(int) (corruption_test.cc:84)
+==3022==    by 0x404676: leveldb::_Test_CompactionInputError::_Run() (corruption_test.cc:329)
+==3022==    by 0x4073CC: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022== 
+==3022== 147 bytes in 3 blocks are possibly lost in loss record 35 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F73D5: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F797D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x407E03: DecodeFrom (dbformat.h:153)
+==3022==    by 0x407E03: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:36)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022==    by 0x43195C: BGThread (env_posix.cc:581)
+==3022==    by 0x43195C: leveldb::(anonymous namespace)::PosixEnv::BGThreadWrapper(void*) (env_posix.cc:520)
+==3022==    by 0x5865181: start_thread (pthread_create.c:312)
+==3022==    by 0x5B7547C: clone (clone.S:111)
+==3022== 
+==3022== 147 bytes in 3 blocks are possibly lost in loss record 36 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F73D5: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F797D: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x407E50: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:38)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022==    by 0x43195C: BGThread (env_posix.cc:581)
+==3022==    by 0x43195C: leveldb::(anonymous namespace)::PosixEnv::BGThreadWrapper(void*) (env_posix.cc:520)
+==3022==    by 0x5865181: start_thread (pthread_create.c:312)
+==3022==    by 0x5B7547C: clone (clone.S:111)
+==3022== 
+==3022== 218 bytes in 2 blocks are possibly lost in loss record 38 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x41701D: length (char_traits.h:259)
+==3022==    by 0x41701D: append (basic_string.h:1009)
+==3022==    by 0x41701D: operator+<char, std::char_traits<char>, std::allocator<char> > (basic_string.h:2406)
+==3022==    by 0x41701D: leveldb::MakeFileName(std::string const&, unsigned long, char const*) (filename.cc:24)
+==3022==    by 0x41709D: leveldb::TableFileName(std::string const&, unsigned long) (filename.cc:34)
+==3022==    by 0x41D3E3: leveldb::TableCache::FindTable(unsigned long, unsigned long, leveldb::Cache::Handle**) (table_cache.cc:53)
+==3022==    by 0x41D75B: leveldb::TableCache::NewIterator(leveldb::ReadOptions const&, unsigned long, unsigned long, leveldb::Table**) (table_cache.cc:91)
+==3022==    by 0x408055: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:67)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022== 
+==3022== 288 bytes in 1 blocks are possibly lost in loss record 41 of 68
+==3022==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x4012E54: allocate_dtv (dl-tls.c:296)
+==3022==    by 0x4012E54: _dl_allocate_tls (dl-tls.c:460)
+==3022==    by 0x5865DA0: allocate_stack (allocatestack.c:589)
+==3022==    by 0x5865DA0: pthread_create@@GLIBC_2.2.5 (pthread_create.c:500)
+==3022==    by 0x431327: leveldb::(anonymous namespace)::PosixEnv::Schedule(void (*)(void*), void*) (env_posix.cc:551)
+==3022==    by 0x4111A0: MaybeScheduleCompaction (db_impl.cc:658)
+==3022==    by 0x4111A0: leveldb::DBImpl::MakeRoomForWrite(bool) (db_impl.cc:1374)
+==3022==    by 0x410923: leveldb::DBImpl::Write(leveldb::WriteOptions const&, leveldb::WriteBatch*) (db_impl.cc:1209)
+==3022==    by 0x40D610: leveldb::DBImpl::TEST_CompactMemTable() (db_impl.cc:622)
+==3022==    by 0x4033C3: leveldb::_Test_TableFile::_Run() (corruption_test.cc:239)
+==3022==    by 0x406EBC: leveldb::_Test_TableFile::_RunIt() (corruption_test.cc:236)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022==    by 0x5A9CEC4: (below main) (libc-start.c:287)
+==3022== 
+==3022== 1,025 bytes in 1 blocks are possibly lost in loss record 56 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F8265: std::string::append(unsigned long, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x434860: resize (basic_string.h:754)
+==3022==    by 0x434860: leveldb::test::RandomString(leveldb::Random*, int, std::string*) (testutil.cc:13)
+==3022==    by 0x4057C0: leveldb::CorruptionTest::Build(int) (random.h:22)
+==3022==    by 0x404676: leveldb::_Test_CompactionInputError::_Run() (corruption_test.cc:329)
+==3022==    by 0x4073CC: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022==    by 0x5A9CEC4: (below main) (libc-start.c:287)
+==3022== 
+==3022== 1,057 bytes in 1 blocks are possibly lost in loss record 57 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x42EF8C: leveldb::PutLengthPrefixedSlice(std::string*, leveldb::Slice const&) (coding.cc:100)
+==3022==    by 0x4057E8: leveldb::CorruptionTest::Build(int) (corruption_test.cc:77)
+==3022==    by 0x404676: leveldb::_Test_CompactionInputError::_Run() (corruption_test.cc:329)
+==3022==    by 0x4073CC: leveldb::_Test_CompactionInputError::_RunIt() (corruption_test.cc:318)
+==3022==    by 0x434410: leveldb::test::RunAllTests() (testharness.cc:52)
+==3022==    by 0x5A9CEC4: (below main) (libc-start.c:287)
+==3022== 
+==3022== 8,160 bytes in 1 blocks are possibly lost in loss record 61 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x428148: leveldb::BlockBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (block_builder.cc:100)
+==3022==    by 0x42ABE5: leveldb::TableBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (table_builder.cc:115)
+==3022==    by 0x407E74: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:40)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022== 
+==3022== 8,160 bytes in 1 blocks are possibly lost in loss record 62 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F8265: std::string::append(unsigned long, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x42AE30: resize (basic_string.h:754)
+==3022==    by 0x42AE30: Snappy_Compress (port_posix.h:119)
+==3022==    by 0x42AE30: leveldb::TableBuilder::WriteBlock(leveldb::BlockBuilder*, leveldb::BlockHandle*) (table_builder.cc:158)
+==3022==    by 0x42AD04: leveldb::TableBuilder::Flush() (table_builder.cc:129)
+==3022==    by 0x42ABFB: leveldb::TableBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (table_builder.cc:119)
+==3022==    by 0x407E74: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:40)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022== 
+==3022== 16,352 bytes in 1 blocks are possibly lost in loss record 64 of 68
+==3022==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3022==    by 0x50F7248: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7E0A: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F7EA3: std::string::reserve(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x50F80EE: std::string::append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19)
+==3022==    by 0x428139: leveldb::BlockBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (block_builder.cc:99)
+==3022==    by 0x42AB85: leveldb::TableBuilder::Add(leveldb::Slice const&, leveldb::Slice const&) (table_builder.cc:105)
+==3022==    by 0x407E74: leveldb::BuildTable(std::string const&, leveldb::Env*, leveldb::Options const&, leveldb::TableCache*, leveldb::Iterator*, leveldb::FileMetaData*) (builder.cc:40)
+==3022==    by 0x40CE59: leveldb::DBImpl::WriteLevel0Table(leveldb::MemTable*, leveldb::VersionEdit*, leveldb::Version*) (db_impl.cc:501)
+==3022==    by 0x40D288: leveldb::DBImpl::CompactMemTable() (db_impl.cc:541)
+==3022==    by 0x40DF46: leveldb::DBImpl::BackgroundCompaction() (db_impl.cc:689)
+==3022==    by 0x40DE64: leveldb::DBImpl::BackgroundCall() (db_impl.cc:674)
+==3022== 
+==3022== LEAK SUMMARY:
+==3022==    definitely lost: 0 bytes in 0 blocks
+==3022==    indirectly lost: 0 bytes in 0 blocks
+==3022==      possibly lost: 36,240 bytes in 24 blocks
+==3022==    still reachable: 5,276,505 bytes in 4,861 blocks
+==3022==         suppressed: 0 bytes in 0 blocks
+==3022== Reachable blocks (those to which a pointer was found) are not shown.
+==3022== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3022== 
+==3022== ERROR SUMMARY: 19 errors from 19 contexts (suppressed: 0 from 0)
+==3022== ERROR SUMMARY: 19 errors from 19 contexts (suppressed: 0 from 0)
+Killed
+make: *** [check] Interrupt
